@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("./header/header.css");
+@import url('./service/service.css');
+@import url('./sobre/sobre.css');
+@import url('./parcerias/parcerias.css');
+@import url('./footer/footer.css');
+@import url('./footer/footer.css');
+@import url('./medias/medias.css');
+
+:root {
+  --hover-backgorund-color: #d3ad7f;
+  --black: #13131a;
+  /*--background: #4e8e8b;*/
+  --background: #ffbc0d;
+  --hover-yellow: #ffbc0d;
+  --white: #fff;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  font-size: 20px;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  color: var(--white);
+  outline: none;
+  
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--background);
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 100%;
+}
+/* SECTION SERVICES*/
+
+section {
+  margin-top: 20rem;
+}
+
+.btn {
+  display: block;
+  padding: 0.7rem 3rem;
+  font-size: 1.7rem;
+  background-color: var(--hover-yellow);
+  color: #1d1d2f;
+  border-radius: 2rem;
+  cursor: pointer;
+}

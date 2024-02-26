@@ -1,0 +1,28 @@
+.sobre-nos {
+    width: 80%;
+    display: flex;
+    gap: 5rem;
+    justify-content: space-between;
+    background: var(--white);
+    margin: 0 auto;
+    border-radius: 0.5rem;
+  }
+  
+  .sobre-nos div {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sobre-nos div h2 {
+    color: #13131a;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .sobre-nos div p {
+    color: #13131a;
+    text-align: center;
+  }
