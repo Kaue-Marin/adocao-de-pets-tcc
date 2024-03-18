@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --hover-backgorund-color: #d3ad7f;
+  --black: #13131a;
+  --background: #fffc00;
+  --hover-yellow: #ece900;
+  --white: #fff;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: #ece900;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 100%;
+}
+
+.icons .active {
+  display: none;
+}
+
+#header .navBar.active {
+  display: none;
+}
+
+.footer {
+  background: var(--black);
+  width: 100vw;
+  padding: 3rem;
+  padding-bottom: 0.8rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.adoteSection {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adoteSection .titlesSection .titleAdote {
+  font-size: 2rem;
+  text-align: center;
+  color: #191970;
+  margin-bottom: 2rem;
+}
+
+.adoteSection .titlesSection .subtitleAdote {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #383838;
+}
+
+.petsBox {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 99%;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.petsBox .pet {
+  width: 20rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.petsBox .pet img {
+  width: 16rem;
+  height: 16rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+.petsBox .pet h2 {
+  font-size: 1.8rem;
+  color: #191970;
+}
+
+.petsBox .pet p {
+  font-size: 1.6rem;
+  color: #191970;
+}
+
+.btn {
+  display: block;
+  padding: 0.7rem 3rem;
+  font-size: 1.7rem;
+  background-color: var(--white);
+  color: #1d1d2f;
+  border-radius: 2rem;
+  cursor: pointer;
+}
