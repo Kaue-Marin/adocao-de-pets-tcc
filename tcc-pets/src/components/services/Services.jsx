@@ -55,7 +55,7 @@ export const Services = () => {
           </p>
         </div>
 
-        <div className="sobre-nos-card">
+        <div className="assunto-pertinente">
           <h2>Sobre Nós</h2>
           <p>
             Somos uma equipe apaixonada por animais, dedicada a fazer a

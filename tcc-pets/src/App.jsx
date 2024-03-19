@@ -8,8 +8,13 @@ function App() {
 
   return (
     <>
+    <div className="container">
+
      <Header/>
      <Outlet/>
+
+    </div>
+
     </>
   )
 }

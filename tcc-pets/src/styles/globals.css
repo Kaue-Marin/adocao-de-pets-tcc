@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap");
 
 :root {
   --hover-backgorund-color: #d3ad7f;
@@ -13,7 +13,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 400;
   border: none;
   text-transform: capitalize;
   text-decoration: none;
@@ -61,68 +62,115 @@ body {
 .adoteSection {
   width: 100%;
   height: 100%;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .adoteSection .titlesSection .titleAdote {
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
-  color: #191970;
+  color: rgb(97 51 135 / 1);
   margin-bottom: 2rem;
 }
 
 .adoteSection .titlesSection .subtitleAdote {
   font-size: 1.6rem;
   text-align: center;
-  color: #383838;
+  color: #666;
 }
 
 .petsBox {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
-  width: 99%;
-  justify-content: center;
+  gap: 4rem;
+  width: 100%;
   margin-top: 6rem;
+  justify-content: center; /* Adicionando centralização horizontal */
 }
 
 .petsBox .pet {
-  width: 20rem;
+  padding: 1rem;
+  width: 25rem;
   height: 25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: #ffffff;
   cursor: pointer;
   border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.petsBox .pet:hover {
+  transform: translateY(-5px);
 }
 
 .petsBox .pet img {
-  width: 16rem;
-  height: 16rem;
-  margin-bottom: 2rem;
+  width: 25rem;
+  height: 25rem;
+  margin-bottom: 1rem;
   border-radius: 0.5rem;
 }
 
 .petsBox .pet h2 {
-  font-size: 1.8rem;
-  color: #191970;
+  font-size: 1.6rem;
+  color: rgb(97 51 135 / 1);
+  font-weight: 700;
 }
 
 .petsBox .pet p {
-  font-size: 1.6rem;
-  color: #191970;
+  font-size: 1.4rem;
+  color: #666;
 }
 
 .btn {
   display: block;
   padding: 0.7rem 3rem;
   font-size: 1.7rem;
-  background-color: var(--white);
+  background-color: var(--hover-yellow);
   color: #1d1d2f;
   border-radius: 2rem;
   cursor: pointer;
+}
+
+.boxBtn {
+  display: flex;
+  gap: 2rem;
+}
+
+.filterForm {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  height: 20rem;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+}
+
+.boxForm {
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+}
+
+.boxForm select,
+.boxForm input[type="text"] {
+  width: 25rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+}
+
+.boxForm select {
+  display: block;
+}
+
+.boxForm input[type="text"] {
+  display: block;
 }
