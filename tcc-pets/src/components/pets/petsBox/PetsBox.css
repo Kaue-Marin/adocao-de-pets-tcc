@@ -1,0 +1,55 @@
+.petsBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    width: 100%;
+    margin-top: 6rem;
+    padding: 1rem;
+    justify-content: center; /* Adicionando centralização horizontal */
+  }
+  
+  .petsBox .pet {
+    padding: 1rem;
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  .petsBox .pet:hover {
+    transform: translateY(-5px);
+  }
+  
+  .petsBox .pet img {
+    width: 25rem;
+    height: 25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .petsBox .pet h2 {
+    font-size: 1.6rem;
+    color: rgb(97 51 135 / 1);
+    font-weight: 700;
+  }
+  
+  .petsBox .pet p {
+    font-size: 1.4rem;
+    color: #666;
+  }
+  
+  .btn {
+    display: block;
+    padding: 0.7rem 3rem;
+    font-size: 1.7rem;
+    background-color: var(--hover-yellow);
+    color: #1d1d2f;
+    border-radius: 2rem;
+    cursor: pointer;
+  }

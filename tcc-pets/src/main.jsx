@@ -1,4 +1,5 @@
 import React from "react";
+import cidadesSp from "./assets/json/cidades.js";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
@@ -14,6 +15,11 @@ import Header from "./components/header/Header.jsx";
 import "./styles/globals.css";
 import { Adote } from "./pages/Adote.jsx";
 import "./styles/medias.css";
+import { ProfilePet } from "./components/pets/profilePet/ProfilePet.jsx";
+import GerarPets from "./utils/GerarPet.js"; // Importe a função que gera os pets
+
+const pets = GerarPets();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -23,8 +29,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/about" element={<About />} />
         <Route path="/ajude" element={<Ajude />} />
         <Route path="/apadrinhe" element={<Apadrinhe />} />
-        <Route path="/adote" element={<Adote />} />
+        <Route path="/adote" element={<Adote petsProps={pets} />} />
+        {/* Passar os pets como propriedade para o componente Adote */}
         <Route path="/contato" element={<Contato />} />
+        <Route path="/profilePet/:petId" element={<ProfilePet pets={pets} />} />
+        {/* Passar os pets como propriedade para o componente ProfilePet */}
         <Route path="/doe" element={<Doe />} />
         <Route path="/parceiros" element={<Parceiros />} />
         <Route path="/cadastro" element={<Cadastro />} />

@@ -1,0 +1,14 @@
+.btnForm {
+    display: block;
+    padding: 0.7rem 3rem;
+    font-size: 1.7rem;
+    background-color: var(--white);
+    color: #1d1d2f;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+   
+  .boxBtn {
+    display: flex;
+    gap: 2rem;
+}

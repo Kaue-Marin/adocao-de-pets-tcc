@@ -1,6 +1,6 @@
 import React from "react";
-import { Services } from "../components/services/Services";
-import { Projects } from "../components/projects/Projects";
+import { Services } from "../components/home/services/Services";
+import { Projects } from "../components/home/projects/Projects";
 
 export const Home = () => {
   return (

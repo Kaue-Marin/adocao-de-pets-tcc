@@ -56,7 +56,7 @@ const Header = () => {
             <p>cadastro</p>
           </div>
           <div className="cadastro profile-box-items">
-            <Link to={"registro"}>
+            <Link to={"login"}>
               <img
                 src={login}
                 alt="imagem de registro"
