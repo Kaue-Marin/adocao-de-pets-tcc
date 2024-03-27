@@ -18,7 +18,7 @@ export const Adote = ({ petsProps }) => {
   const pets = petsProps;
 
   return (
-    <section className="adoteSection">
+    <section className="adoteSection" style={{marginTop: '15rem'}}>
       <TitleSection
         title="novos peludos por aqui"
         subtitle="nosso site está cheio de doguinhos e gatinhos por uma família"

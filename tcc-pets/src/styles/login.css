@@ -1,10 +1,123 @@
+/* login.css */
+
+.login {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100vh;
+  margin-right: 30rem;
+}
+
 .bg {
+  position: absolute;
+  width: auto;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
   margin-top: 10rem;
-  margin-left: -10rem;
 }
 
 .bg img {
-  width: auto;
   height: 100%;
-  position: fixed;
+  object-fit: cover;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Ocupa todo o espaço disponível */
+}
+
+.form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 40rem;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-transform: none;
+  margin-top: .5rem;
+
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnLogin :hover {
+  background-color: #0056b3;
+}
+
+.logo {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.logo img{
+  width: 5rem;
+}
+
+
+.newPassword {
+  margin-right: 1rem;
+}
+
+.newPassword, .newAccount {
+  font-size: 1.4rem;
+}
+
+.newAccount {
+  color: #0056b3;
+}
+
+.newRegisterAndPassword {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-left: -1rem;
+}
+
+.google {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  gap: 2rem;
+}
+
+.googleLogin {
+  width: 25rem;
+  margin: 0 auto;
 }

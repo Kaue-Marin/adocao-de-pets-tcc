@@ -84,9 +84,10 @@ body {
 
 .profilePet {
   width: 100%;
-  max-width: 1200px;
-  margin: 15rem 0rem 5rem 12rem;
+  height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .titlePet {
@@ -208,3 +209,4 @@ body {
   color: #1c1cff;
   cursor: pointer;
 }
+

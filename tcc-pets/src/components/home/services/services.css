@@ -1,9 +1,7 @@
 /* SECTION SERVICES*/
-
-section {
+.services {
   margin-top: 15rem;
 }
-
 .services-box {
   margin: 10rem 0;
   display: flex;
