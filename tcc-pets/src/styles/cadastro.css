@@ -1,0 +1,96 @@
+/* cadastro.css */
+
+.bg {
+  position: absolute;
+  width: auto;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  margin-top: 10rem;
+}
+
+.bg img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Ocupa todo o espaço disponível */
+}
+
+.form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 40rem;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-transform: none;
+  margin-top: 0.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.checkbox-container label {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnLogin:hover {
+  background-color: #0056b3;
+}
+
+.login-links {
+  margin-top: 1rem;
+}
+
+.login-links p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-links a {
+  color: #0056b3;
+}
