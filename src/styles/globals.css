@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap");
+
+:root {
+  --hover-backgorund-color: #d3ad7f;
+  --black: #13131a;
+  --background: #fffc00;
+  --hover-yellow: #ece900;
+  --white: #fff;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 400;
+  border: none;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: #ece900;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 100%;
+}
+
+.icons .active {
+  display: none;
+}
+
+#header .navBar.active {
+  display: none;
+}
+
+.footer {
+  background: var(--black);
+  width: 100vw;
+  padding: 3rem;
+  padding-bottom: 0.8rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.adoteSection {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.adoteSection .titlesSection .titleAdote {
+  font-size: 2.5rem;
+  text-align: center;
+  color: rgb(97 51 135 / 1);
+  margin-bottom: 2rem;
+}
+
+.adoteSection .titlesSection .subtitleAdote {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #666;
+}
+
+.profilePet {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titlePet {
+  font-weight: 600;
+  font-size: 4rem;
+  color: #13131a;
+  margin-bottom: 0.5rem;
+}
+
+.algumasCaracteristicasDoPetBox {
+  display: flex;
+  gap: 1rem;
+}
+
+.algumasCaracteristicasDoPetBox .algumasCaracteristicasDoPet {
+  font-size: 1.4rem;
+  color: #808080;
+}
+
+.algumasCaracteristicasDoPetBox .separandoCaracteristicas {
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+
+.informacoesDoPet {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.informacoesDoPet .informacaoPet {
+  font-size: 1.4rem;
+  color: #13131a;
+}
+
+.iconInformacaoPet {
+  color: #3c3cff;
+  font-size: 2rem;
+  margin-right: 2rem;
+}
+
+.descriptionPet {
+  margin-top: 3rem;
+}
+.DescriptionTitlePet {
+  font-size: 3rem;
+  color: #333;
+}
+.descriptionHistoryPet {
+  max-width: 40rem;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  color: #13131a;
+}
+
+.imgPet {
+  margin-left: 5rem;
+}
+.imgPet img {
+  width: 38rem;
+  border-radius: 0.5rem;
+  height: 45rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor escura com opacidade */
+  z-index: 1000; /* Garante que a sobreposição esteja acima de outros elementos */
+}
+
+.informationsProfileAdocao {
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  z-index: 1001; /* Garante que as informações estejam acima da sobreposição */
+}
+
+/* Estilos para as informações */
+.informations {
+  width: 50rem;
+  height: 30rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ExitInformationsProfileAdocao {
+  margin-bottom: -5rem;
+  margin-left: 45rem;
+  z-index: 1002;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.informations.title {
+  font-size: 2rem;
+  color: #13131a;
+}
+
+.informations .description {
+  font-size: 1.6rem;
+  color: #13131a;
+  text-align: center;
+  width: 80%;
+}
+
+.informations .email,
+.informations .phone {
+  font-size: 1.6rem;
+  color: #1c1cff;
+  cursor: pointer;
+}
+
