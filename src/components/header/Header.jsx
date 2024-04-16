@@ -4,7 +4,7 @@ import login from "../../assets/carteira-de-identidade.png";
 import registro from "../../assets/register.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
@@ -13,14 +13,31 @@ const Header = () => {
   const [userData, setUserData] = useState();
   const [imageProfile, setImageProfile] = useState("");
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const storedData = localStorage.getItem("googleData");
+    const storedGoogleData = localStorage.getItem("googleData");
+    const storedCadastroData = localStorage.getItem("cadastroData");
+    const storedData = storedGoogleData || storedCadastroData;
+
     if (storedData) {
-      const decodedData = JSON.parse(storedData);
-      setImageProfile(decodedData.picture);
-      setIsLoggedIn(true);
-      setUserData(decodedData);
+      try {
+        const decodedData = JSON.parse(storedData);
+        let initials = "";
+
+        if (decodedData.nome) {
+          initials = decodedData.nome
+            .split(" ")
+            .map((name) => name[0])
+            .join("");
+        }
+
+        setImageProfile(initials.toUpperCase());
+        setIsLoggedIn(true);
+        setUserData(decodedData);
+      } catch (error) {
+        console.error("Erro ao processar dados do localStorage:", error);
+      }
     }
   }, []);
 
@@ -36,11 +53,21 @@ const Header = () => {
     setShowProfileMenu(!showProfileMenu);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("googleData");
+    localStorage.removeItem("cadastroData");
+    localStorage.setItem("isLoggedIn", false);
+    navigate("/cadastro");
+    window.location.reload();
+  };
+
   return (
     <>
       <header id="header">
         <div className="logo">
-          <img src={logo} alt="logo marca adoção de pets" />
+          <Link to={"/"}>
+            <img src={logo} alt="logo marca adoção de pets" />
+          </Link>
         </div>
 
         <nav className={`navBar ${menuOpen ? "active" : ""}`}>
@@ -65,16 +92,17 @@ const Header = () => {
 
         {isLoggedIn ? (
           <div className="profile">
-            <div className="profile-box-items" onClick={toggleProfileMenu}>
-              <img
-                src={imageProfile}
-                alt="Imagem de perfil do Google"
-                className="profile-img-Logged"
-              />
+            <div
+              className="profile-box-items-google"
+              onClick={toggleProfileMenu}
+            >
+              <div className="profile-img-Logged">{imageProfile}</div>
               {showProfileMenu && (
                 <div className="mini-menu">
-                  <p>Meu perfil</p>
-                  <p>Sair</p>
+                  <Link to={"/profile"}>
+                    <p>Meu perfil</p>
+                  </Link>
+                  <p onClick={handleLogout}>Sair</p>
                 </div>
               )}
             </div>
@@ -92,7 +120,7 @@ const Header = () => {
               <p>cadastro</p>
             </div>
             <div className="cadastro profile-box-items">
-              <Link to={"login"}>
+              <Link to={"/login"}>
                 <img
                   src={login}
                   alt="imagem de registro"

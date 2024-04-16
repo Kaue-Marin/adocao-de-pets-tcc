@@ -1,4 +1,4 @@
-@media (max-width: 790px) {
+@media (max-width: 850px) {
   html {
     font-size: 55%;
   }
@@ -63,6 +63,8 @@
     margin: 0 auto;
     flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
+
   }
 
   .sobre-nos div {
@@ -76,11 +78,17 @@
   .sobre-nos div h2 {
     color: #13131a;
     margin-bottom: 3rem;
+    font-size: 1.2rem;
   }
 
   .sobre-nos div p {
     color: #13131a;
+    font-size: 1.2rem;
   }
+
+  .sobre-nos .assunto-pertinente {
+    width: 60%;
+  } 
 }
 
 @media (max-width: 530px) {

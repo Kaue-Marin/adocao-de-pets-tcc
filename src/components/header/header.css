@@ -16,6 +16,7 @@
 #header .logo img {
   width: 6rem;
   cursor: pointer;
+  margin-bottom: -2rem;
 }
 
 #header .navBar ul a {
@@ -36,6 +37,16 @@
 }
 
 .profile-box-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 8rem;
+}
+
+.profile-box-items-google {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,21 +92,37 @@
 
 .mini-menu {
   position: absolute;
-  top: 8rem; /* Ajuste conforme necessário */
-  right: 6%;
+  top: 8.5rem; /* Ajuste conforme necessário */
+  right: 6.4%;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 1.5rem;
   z-index: 999; /* Certifique-se de que o mini-menu esteja sobreposto a outros elementos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .mini-menu p {
   margin: 0.5rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .mini-menu p:hover {
   color: blue; /* Adicione o estilo desejado para o hover */
+}
+
+.profile-img-Logged {
+  width: 5rem; /* Defina a largura da imagem */
+  height: 5rem; /* Defina a altura da imagem */
+  border-radius: 50%; /* Isso torna a imagem redonda */
+  background-color: white; /* Adiciona um fundo branco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem; /* Adiciona um espaçamento à direita */
+  font-size: 1.5rem;
 }

@@ -1,18 +1,20 @@
-import { Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import AuthContext from "./context/AuthContext";
+import { Outlet } from 'react-router-dom'
+import Header from './components/Header'
+
 
 function App() {
+
   return (
     <>
-      <UserContext.Provider value={}>
-        <div className="container">
-          <Header />
-          <Outlet />
-        </div>
-      </UserContext.Provider>
+    <div className="container">
+
+     <Header/>
+     <Outlet/>
+
+    </div>
+
     </>
-  );
+  )
 }
 
-export default App;
+export default App

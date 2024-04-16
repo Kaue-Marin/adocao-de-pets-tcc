@@ -1,0 +1,88 @@
+.form-container-adocao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .formAdocao {
+    width: 40rem;
+  }
+  
+  .form {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btnConcluir,
+  .btnCancelar {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btnConcluir {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btnCancelar {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .imgPet {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-left: 0 !important;
+  }
+
+  .btnImgPet {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+
+  }
+
+  .confirmData p{
+    font-size: 1.4rem;
+    color: #333;
+  }

@@ -88,6 +88,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10rem;
 }
 
 .titlePet {
@@ -149,7 +151,7 @@ body {
   margin-left: 5rem;
 }
 .imgPet img {
-  width: 38rem;
+  width: 80%;
   border-radius: 0.5rem;
   height: 45rem;
 }
@@ -210,3 +212,14 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 731px) {
+  .caracteristicasPet, .informacoesDoPet, .descriptionPet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .imgPet {
+    margin-left: 0;
+  }
+}

@@ -7,20 +7,20 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import IsAuthenticated from "../../../utils/IsAuthenticate";
 
 export const ProfilePet = ({ pets }) => {
   const { petId } = useParams();
   const navigate = useNavigate();
   const [exitOverlay, setExitOverlay] = useState(false);
-  const authenticated = IsAuthenticated(); // Verifica se o usuário está autenticado
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem("isLoggedIn"))
   const toggleOverlay = () => {
-    if (authenticated === false) {
-      navigate("/login");
+    if (authenticated !== "true") {
+      navigate("/cadastro");
     } else {
-      setExitOverlay(!exitOverlay); // Mova esta linha para o else para garantir que o overlay só seja exibido se o usuário estiver autenticado
+      setExitOverlay(!exitOverlay);
     }
   };
+  
 
   const pet = pets[petId];
 
@@ -81,7 +81,7 @@ export const ProfilePet = ({ pets }) => {
       <div
         className="overlay"
         onClick={toggleOverlay}
-        style={{ display: exitOverlay === true ? "block" : "none" }}
+        style={{ display: exitOverlay ? "block" : "none" }}
       >
         <div className="informationsProfileAdocao">
           <FontAwesomeIcon
@@ -104,7 +104,7 @@ export const ProfilePet = ({ pets }) => {
             </a>
 
             <a
-              href={`https://api.whatsapp.com/send?phone=${pet.autor.telefone}`}
+              href={`https://api.whatsapp.com/send?phone=5511958638232`}
               className="phone"
               target="_blank"
             >

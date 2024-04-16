@@ -17,6 +17,7 @@ import { Adote } from "./pages/Adote.jsx";
 import "./styles/medias.css";
 import { ProfilePet } from "./components/pets/profilePet/ProfilePet.jsx";
 import GerarPets from "./utils/GerarPet.js"; // Importe a função que gera os pets
+import { Profile } from "./pages/Profile.jsx";
 
 const pets = GerarPets();
 
@@ -38,6 +39,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/parceiros" element={<Parceiros />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

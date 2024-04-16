@@ -54,10 +54,14 @@
   width: 80%;
   display: flex;
   gap: 5rem;
+  align-items: center;
   justify-content: center;
   background: var(--white);
   margin: 0 auto;
   border-radius: 0.5rem;
+  align-items: flex-start
+
+
 }
 
 .sobre-nos div {
@@ -77,6 +81,7 @@
 .sobre-nos div p {
   color: #13131a;
   text-align: center;
+
 }
 
 .sobre-nos .assunto-pertinente {

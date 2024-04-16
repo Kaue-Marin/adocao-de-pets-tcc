@@ -12,9 +12,7 @@ export const PetsBox = ({
   nome,
   numPetsVisiveis,
 }) => {
-  {
-    console.log(pets[4].cidade);
-  }
+
 
   return (
     <div className="petsBox">

@@ -1,0 +1,99 @@
+.profileSection {
+  margin-top: 15rem;
+}
+
+.profileForm {
+  display: flex;
+  border: 1px solid #333; /* Alterando a cor da borda */
+  border-radius: 5px;
+  overflow: hidden; /* Oculta as bordas sobrepostas */
+  max-width: 600px; /* Definindo a largura máxima do formulário */
+  margin: 0 auto; /* Centralizando o formulário na página */
+}
+
+.profileImage {
+  padding: 1rem;
+  border-right: 1px solid #333; /* Alterando a cor da borda lateral */
+}
+
+.profileImage img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profileLinks .DatasProfileBox {
+  padding: 1rem;
+  text-align: center;
+}
+
+.profileLinks .DatasProfileBox .linkData {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.profileLinks .DatasProfileBox .linkData:hover {
+  color: #000;
+}
+
+.separatorLine {
+  border-top: 1px solid #333; /* Adicionando a borda superior */
+}
+
+.profileDetails {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.profileDetails label {
+  font-weight: bold;
+}
+
+.profileDetails input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 1px solid #333; /* Alterando a cor da borda inferior */
+  background-color: transparent; /* Fundo transparente */
+  color: #333; /* Cor do texto */
+}
+
+.profileDetails input:focus {
+  outline: none; /* Removendo o contorno ao focar */
+}
+
+.profileDetails .name {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttonContainer {
+  margin-top: 1rem;
+}
+
+.buttonContainer button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonContainer button:hover {
+  background-color: #555;
+}

@@ -1,32 +1,49 @@
 /* cadastro.css */
 
 .bg {
-  position: fixed;
+  position: absolute;
   width: auto;
   height: 100%;
+  left: 0;
+  top: 0;
   z-index: -1;
   margin-top: 10rem;
 }
 
-.bg img {
-  height: 100%;
-  position: fixed;
-}
-
-.form-container {
+.logo-register-box {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1; /* Ocupa todo o espaço disponível */
+  margin-bottom: 5rem;
+}
+.logo-register-box img {
+  width: 6rem;
+  cursor: pointer;
+}
+.bg img {
+  height: 100%;
+  position: fixed;
+  object-fit: cover;
 }
 
-.formRegister {
+.form-container-cadastro{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100vh;
+  margin-right: 30rem;
+}
+
+.form {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   width: 40rem;
-  margin-top: 45rem;
+  background: #fff;
+  margin: 2rem 0;
 }
+
 
 .logo {
   text-align: center;
@@ -92,4 +109,32 @@ select {
 
 .login-links a {
   color: #0056b3;
+}
+
+.nasciment input{
+  padding: 1rem;
+  margin-left: 2rem;
+  border-radius: .5rem;
+}
+
+
+
+
+
+@media (max-width: 995px){
+  .form-container-cadastro {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+}
+
+@media (max-width: 400px){
+  .bg {
+    display: none;
+  }
+  .form {
+    margin: 0 auto;
+    width: 90% !important;
+  }
 }
