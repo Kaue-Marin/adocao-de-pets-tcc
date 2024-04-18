@@ -7,7 +7,7 @@ import { Btn } from "../components/pets/btn/Btn";
 import { TitleSection } from "../components/titlesection/TitleSection";
 
 export const Adote = ({ petsProps }) => {
-  const [numPetsVisiveis, setNumPetsVisiveis] = useState(15); // Inicialmente, mostraremos apenas 15 pets
+  const [numPetsVisiveis, setNumPetsVisiveis] = useState(6); // Inicialmente, mostraremos apenas 15 pets
   const [especie, setEspecie] = useState("todos");
   const [sexo, setSexo] = useState("todos");
   const [porte, setPorte] = useState("todos");
@@ -18,7 +18,7 @@ export const Adote = ({ petsProps }) => {
   const pets = petsProps;
 
   return (
-    <section className="adoteSection" style={{marginTop: '15rem'}}>
+    <section className="adoteSection" style={{ marginTop: "15rem" }}>
       <TitleSection
         title="novos peludos por aqui"
         subtitle="nosso site está cheio de doguinhos e gatinhos por uma família"

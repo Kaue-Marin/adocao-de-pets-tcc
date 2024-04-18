@@ -31,15 +31,13 @@ export const Profile = () => {
   const [surname, setSurname] = useState("");
 
   // Estado para armazenar o email original
-  const [originalEmail, setOriginalEmail] = useState("");
-
+  const [originalEmail, setOriginalEmail] = useState(userData.email);
   // Histórico para redirecionar após o logout
   // Efeito para atualizar o nome, sobrenome e email quando userData mudar
   useEffect(() => {
     const { firstName, lastName } = splitName(userData.nome);
     setName(firstName);
     setSurname(lastName);
-    setOriginalEmail(userData.email);
   }, [userData]);
 
   // Função para alternar entre os modos de leitura e edição
@@ -72,11 +70,24 @@ export const Profile = () => {
 
   // Função para deslogar o usuário
   const handleLogout = () => {
+    window.location.reload();
     localStorage.removeItem("googleData");
     localStorage.removeItem("cadastroData");
     localStorage.setItem("isLoggedIn", false);
     navigate("/cadastro");
-    window.location.reload();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(originalEmail, userData.email);
+    // Verifica se o e-mail foi alterado
+    if (userData.email !== originalEmail) {
+      localStorage.removeItem("googleData");
+      localStorage.removeItem("cadastroData");
+      localStorage.setItem("isLoggedIn", false);
+      navigate("/cadastro");
+      window.location.reload();
+    }
   };
 
   return (
@@ -102,7 +113,7 @@ export const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="profileDetails">
+        <form className="profileDetails" onSubmit={handleSubmit}>
           <div className="name">
             <label htmlFor="name">Nome:</label>
             <input
@@ -126,8 +137,10 @@ export const Profile = () => {
             <input
               type="email"
               id="email"
-              value={userData.email}
-              onChange={(e) => handleEmailChange(e.target.value)}
+              value={isEditing ? userData.email : userData.email}
+              onChange={(e) =>
+                setUserData({ ...userData, email: e.target.value })
+              }
               readOnly={!isEditing}
             />
           </div>
@@ -136,25 +149,23 @@ export const Profile = () => {
             <input
               type="tel"
               id="phone"
-              value={userData.telefone}
+              value={isEditing ? userData.telefone : userData.telefone}
+              onChange={(e) =>
+                setUserData({ ...userData, telefone: e.target.value })
+              }
               readOnly={!isEditing}
             />
           </div>
-          <div className="gender">
-            <label htmlFor="gender">Gênero:</label>
-            <input
-              type="text"
-              id="gender"
-              value={userData.genero}
-              readOnly={!isEditing}
-            />
-          </div>
+
           <div className="state">
             <label htmlFor="state">Estado:</label>
             <input
               type="text"
               id="state"
-              value={userData.estado}
+              value={isEditing ? userData.estado : userData.estado}
+              onChange={(e) =>
+                setUserData({ ...userData, estado: e.target.value })
+              }
               readOnly={!isEditing}
             />
           </div>
@@ -163,18 +174,25 @@ export const Profile = () => {
             <input
               type="text"
               id="city"
-              value={userData.cidade}
+              value={isEditing ? userData.cidade : userData.cidade}
+              onChange={(e) =>
+                setUserData({ ...userData, cidade: e.target.value })
+              }
               readOnly={!isEditing}
             />
           </div>
           <div className="buttonContainer">
             {isEditing ? (
-              <button onClick={saveChanges}>Salvar Alterações</button>
+              <button onClick={saveChanges} type="button">
+                Salvar Alterações
+              </button>
             ) : (
-              <button onClick={toggleEditing}>Alterar</button>
+              <button onClick={toggleEditing} type="submit">
+                Alterar
+              </button>
             )}
           </div>
-        </div>
+        </form>
       </div>
     </section>
   );

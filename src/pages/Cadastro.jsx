@@ -6,56 +6,50 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/cadastro.css";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-
 export const Cadastro = () => {
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
-  const [nomeGoogle, setNomeGoogle] = useState("");
-  const [emailGoogle, setEmailGoogle] = useState("");
-  const [profilePicGoogle, setProfilePicGoogle] = useState("");
-  const [loggedInGoogle, setIsLoggedInGoogle] = useState("");
   const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [genero, setGenero] = useState(""); // Adicionando o estado para gênero
+  const [genero, setGenero] = useState("");
+  const [dataNascimento, setDataNascimento] = useState("");
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [endereco, setEndereco] = useState("");
-  const [senha, setSenha] = useState(""); // Adicionando o estado para senha
   const navigate = useNavigate();
-
-  const handleSubmitLoginGoogle = (decoded) => {
-    setNomeGoogle(decoded.name);
-    setEmailGoogle(decoded.email);
-    setProfilePicGoogle(decoded.picture);
-    setIsLoggedInGoogle(true);
-
-    // Salvando os dados no localStorage
-    localStorage.setItem("googleData", JSON.stringify(decoded));
-    localStorage.setItem("isLoggedIn", true); // Adicionando a informação de login
-    navigate("/adote");
-    window.location.reload();
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Criando um objeto com os dados do cadastro
     const formData = {
       nome: nome + " " + sobrenome,
       email: email,
+      senha: senha,
       telefone: telefone,
       genero: genero,
+      data_nascimento: dataNascimento,
       cidade: cidade,
       estado: estado,
       endereco: endereco,
-      senha: senha,
     };
-
-    console.log(formData);
     localStorage.setItem("cadastroData", JSON.stringify(formData));
     localStorage.setItem("isLoggedIn", true); // Adicionando a informação de login
     navigate("/adote");
     window.location.reload();
+    /* try {
+      const response = await axios.post('http://localhost/testemysql/formulario.php', formData);
+      console.log(response.data); // Verifique a resposta do servidor
+
+      // Você pode adicionar lógica adicional aqui, como redirecionar o usuário para outra página
+      localStorage.setItem("cadastroData", JSON.stringify(formData));
+      localStorage.setItem("isLoggedIn", true); // Adicionando a informação de login
+      navigate("/adote");
+      window.location.reload();
+    } catch (error) {
+      console.error('Erro ao enviar dados do formulário:', error);
+      // Você pode lidar com o erro de forma apropriada aqui, como exibir uma mensagem de erro para o usuário
+    }*/
   };
 
   return (
@@ -70,35 +64,50 @@ export const Cadastro = () => {
             <img src={logo} alt="logo register" />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="nome">Nome:</label>
+          <div className="inputBox">
+            <label htmlFor="nome" className="labelInput">
+              Nome completo
+            </label>
             <input
               type="text"
               name="nome"
               id="nome"
+              className="inputUser"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               required
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="sobrenome">Sobrenome:</label>
+          <br />
+          <br />
+
+          <div className="inputBox">
+            <label htmlFor="senha" className="labelInput">
+              Senha
+            </label>
             <input
-              type="text"
-              name="sobrenome"
-              id="sobrenome"
-              value={sobrenome}
-              onChange={(e) => setSobrenome(e.target.value)}
+              type="password"
+              name="senha"
+              id="senha"
+              className="inputUser"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
               required
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
+          <br />
+          <br />
+
+          <div className="inputBox">
+            <label htmlFor="email" className="labelInput">
+              Email
+            </label>
             <input
               type="email"
               id="email"
+              className="inputUser"
               value={email}
               name="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -106,89 +115,121 @@ export const Cadastro = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="telefone">Telefone:</label>
+          <br />
+          <br />
+
+          <div className="inputBox">
+            <label htmlFor="telefone" className="labelInput">
+              Telefone
+            </label>
             <input
-              type="text"
+              type="tel"
               name="telefone"
               id="telefone"
+              className="inputUser"
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
               required
             />
           </div>
 
-          <div className="form-group">
-            <input
-              type="radio"
-              id="feminino"
-              name="genero"
-              value="feminino"
-              required
-            />
+          <p>Sexo:</p>
 
-            <label htmlFor="feminino">Feminino</label>
-            <br />
-            <input
-              type="radio"
-              id="masculino"
-              name="genero"
-              value="masculino"
-              required
-            />
-            <label htmlFor="masculino">Masculino</label>
-            <br />
-            <input
-              type="radio"
-              id="outro"
-              name="genero"
-              value="outro"
-              required
-            />
-            <label htmlFor="outro">Outro</label>
-          </div>
-          <div className="form-group nasciment">
-            <label htmlFor="data_nascimento ">data de nascimento</label>
-            <input
-              type="date"
-              name="data_nascimento"
-              id="data_nascimento"
-              required
-            />
-          </div>
+          <input
+            type="radio"
+            id="feminino"
+            name="genero"
+            value="feminino"
+            onChange={(e) => setGenero(e.target.value)}
+            required
+          />
+          <label htmlFor="feminino">Feminino</label>
+          <br />
+          <input
+            type="radio"
+            id="masculino"
+            name="genero"
+            value="masculino"
+            onChange={(e) => setGenero(e.target.value)}
+            required
+          />
+          <label htmlFor="masculino">Masculino</label>
+          <br />
+          <input
+            type="radio"
+            id="outro"
+            name="genero"
+            value="outro"
+            onChange={(e) => setGenero(e.target.value)}
+            required
+          />
+          <label htmlFor="outro">Outro</label>
 
-          <div className="form-group">
-            <label htmlFor="cidade">Cidade:</label>
+          <br />
+          <br />
+
+          <label htmlFor="data_nascimento">
+            <b>Data de Nascimento:</b>
+          </label>
+          <input
+            type="date"
+            name="data_nascimento"
+            id="data_nascimento"
+            onChange={(e) => setDataNascimento(e.target.value)}
+            required
+          />
+
+          <br />
+          <br />
+          <br />
+
+          <div className="inputBox">
+            <label htmlFor="cidade" className="labelInput">
+              Cidade
+            </label>
             <input
               type="text"
-              id="cidade"
-              value={cidade}
               name="cidade"
+              id="cidade"
+              className="inputUser"
+              value={cidade}
               onChange={(e) => setCidade(e.target.value)}
               required
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="estado">estado:</label>
+          <br />
+          <br />
+
+          <div className="inputBox">
+            <label htmlFor="estado" className="labelInput">
+              Estado
+            </label>
             <input
               type="text"
-              id="estado"
-              value={estado}
               name="estado"
-              onChange={(e) => setEstado(e.target.value)} // Corrigido para setEstado
+              id="estado"
+              className="inputUser"
+              value={estado}
+              onChange={(e) => setEstado(e.target.value)}
               required
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="endereco">endereco:</label>
+          <br />
+          <br />
+
+          <div className="inputBox">
+            <label htmlFor="endereco" className="labelInput">
+              Endereço
+            </label>
             <input
               type="text"
-              id="endereco"
-              value={endereco}
               name="endereco"
-              onChange={(e) => setEndereco(e.target.value)} // Corrigido para setEndereco
+              id="endereco"
+              className="inputUser"
+              value={endereco}
+              onChange={(e) => setEndereco(e.target.value)}
               required
             />
           </div>

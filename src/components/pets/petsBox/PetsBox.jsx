@@ -12,8 +12,6 @@ export const PetsBox = ({
   nome,
   numPetsVisiveis,
 }) => {
-
-
   return (
     <div className="petsBox">
       {pets

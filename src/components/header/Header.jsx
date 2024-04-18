@@ -26,10 +26,12 @@ const Header = () => {
         let initials = "";
 
         if (decodedData.nome) {
-          initials = decodedData.nome
-            .split(" ")
-            .map((name) => name[0])
-            .join("");
+          const names = decodedData.nome.split(" ");
+          if (names.length >= 2) {
+            initials = names[0][0] + names[1][0];
+          } else {
+            initials = names[0].slice(0, 2);
+          }
         }
 
         setImageProfile(initials.toUpperCase());
