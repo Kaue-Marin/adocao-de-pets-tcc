@@ -23,23 +23,20 @@ const Header = () => {
     if (storedData) {
       try {
         const decodedData = JSON.parse(storedData);
-        let initials = "";
-
-        if (decodedData.nome) {
-          const names = decodedData.nome.split(" ");
-          if (names.length >= 2) {
-            initials = names[0][0] + names[1][0];
-          } else {
-            initials = names[0].slice(0, 2);
-          }
-        }
-
-        setImageProfile(initials.toUpperCase());
         setIsLoggedIn(true);
         setUserData(decodedData);
+        if (decodedData.fotoPerfil) {
+          setImageProfile(decodedData.fotoPerfil);
+        } else {
+          // Usar uma imagem padrão se não houver foto de perfil
+          setImageProfile(registro);
+        }
       } catch (error) {
         console.error("Erro ao processar dados do localStorage:", error);
       }
+    } else {
+      // Usar uma imagem padrão se não houver dados no localStorage
+      setImageProfile(registro);
     }
   }, []);
 
@@ -98,15 +95,17 @@ const Header = () => {
               className="profile-box-items-google"
               onClick={toggleProfileMenu}
             >
-              <div className="profile-img-Logged">{imageProfile}</div>
-              {showProfileMenu && (
-                <div className="mini-menu">
-                  <Link to={"/profile"}>
-                    <p>Meu perfil</p>
-                  </Link>
-                  <p onClick={handleLogout}>Sair</p>
-                </div>
-              )}
+              <div className="profile-img-Logged-header">
+                <img src={imageProfile} alt="Foto de Perfil" style={{ width: '70px' }} />
+                {showProfileMenu && (
+                  <div className="mini-menu">
+                    <Link to={"/profile"}>
+                      <p>Meu perfil</p>
+                    </Link>
+                    <p onClick={handleLogout}>Sair</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         ) : (

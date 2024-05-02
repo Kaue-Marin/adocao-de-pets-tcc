@@ -40,6 +40,9 @@ const GerarPets = () => {
     pets.push(pet);
   });
 
+  // Armazenar os pets no localStorage
+  localStorage.setItem("pets", JSON.stringify(pets));
+
   return pets;
 };
 

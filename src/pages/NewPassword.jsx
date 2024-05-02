@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import "../styles/newPassword.css";
 
 export const NewPassword = () => {
+  // Supondo que os dados da pessoa estejam armazenados em localStorage
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("cadastroData"))
+  );
+
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -28,10 +33,14 @@ export const NewPassword = () => {
       <div className="profileForm">
         <div className="profileImage">
           {/* Mesmo link para a foto de perfil */}
-          <img
-            src={`https://ui-avatars.com/api/?name=John+Doe&background=random`}
-            alt="Foto de Perfil"
-          />
+          {userData.fotoPerfil ? (
+            <img src={userData.fotoPerfil} alt="Foto de Perfil" />
+          ) : (
+            <img
+              src={`https://ui-avatars.com/api/?name=${userData.nome}&background=random`}
+              alt="Foto de Perfil"
+            />
+          )}
           <div className="profileLinks">
             <div className="DatasProfileBox">
               <Link to={"/profile"} className="linkData">

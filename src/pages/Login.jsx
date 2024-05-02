@@ -4,9 +4,10 @@ import { useState } from "react";
 import "../styles/login.css";
 import bg from "../assets/bg-login.png";
 import logo from "../assets/dog.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,10 +16,39 @@ export const Login = () => {
   const [emailGoogle, setEmailGoogle] = useState("");
   const [profilePic, setProfilePic] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para lidar com o envio do formulário
+
+    try {
+      const response = await axios.post("http://localhost:3001/login", {
+        email: email,
+        senha: password,
+      });
+      console.log(response.data);
+
+      // Se a requisição for bem-sucedida, você pode adicionar lógica adicional aqui,
+      // como redirecionar o usuário para outra página
+      // ou armazenar informações no localStorage
+
+      // Exemplo: Se estiver buscando apenas o primeiro usuário retornado
+      if (response.data.length > 0) {
+        const userId = response.data[0].id;
+        console.log(userId);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("cadastroData", JSON.stringify(response.data[0]));
+        localStorage.setItem("isLoggedIn", true);
+        navigate("/adote");
+        window.location.reload();
+      } else {
+        console.log("Usuário não encontrado");
+        // Lógica para lidar com usuário não encontrado
+      }
+    } catch (error) {
+      console.error("Erro ao enviar dados do formulário:", error);
+      // Você pode lidar com o erro de forma apropriada aqui, como exibir uma mensagem de erro para o usuário
+    }
   };
 
   return (

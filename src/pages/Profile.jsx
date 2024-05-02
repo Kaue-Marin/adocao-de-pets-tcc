@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; // Importe o axios para fazer requisições HTTP
 import "../styles/profile.css";
 
 export const Profile = () => {
-  // Supondo que os dados da pessoa estejam armazenados em localStorage
-  const [userData, setUserData] = useState(
-    JSON.parse(localStorage.getItem("cadastroData"))
-  );
+  const [userData, setUserData] = useState(null); // Inicialize userData como null
   const navigate = useNavigate();
 
-  // Função para separar o nome e sobrenome
   const splitName = (fullName) => {
     const spaceIndex = fullName.indexOf(" ");
     const firstName =
@@ -19,181 +16,192 @@ export const Profile = () => {
     return { firstName, lastName };
   };
 
-  // Estado para controlar o modo de edição
   const [isEditing, setIsEditing] = useState(false);
-
-  // Estado para armazenar temporariamente os valores editados
   const [tempName, setTempName] = useState("");
   const [tempSurname, setTempSurname] = useState("");
+  const [originalEmail, setOriginalEmail] = useState("");
 
-  // Estado para armazenar nome e sobrenome
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-
-  // Estado para armazenar o email original
-  const [originalEmail, setOriginalEmail] = useState(userData.email);
-  // Histórico para redirecionar após o logout
-  // Efeito para atualizar o nome, sobrenome e email quando userData mudar
   useEffect(() => {
-    const { firstName, lastName } = splitName(userData.nome);
-    setName(firstName);
-    setSurname(lastName);
-  }, [userData]);
+    const fetchUserData = async () => {
+      try {
+        const userId = localStorage.getItem("userId"); // Obtém o ID do usuário do localStorage
+        if (!userId) {
+          // Se o ID do usuário não estiver presente, redirecione para a página de login
+          navigate("/login");
+          return;
+        }
+        const response = await axios.get(
+          `http://localhost:3001/userdata/${userId}`
+        ); // Envie o ID do usuário na URL da solicitação GET
+        setUserData(response.data);
+        setOriginalEmail(response.data.email);
+        const { firstName, lastName } = splitName(response.data.nome);
+        setTempName(firstName);
+        setTempSurname(lastName);
+      } catch (error) {
+        console.error("Erro ao buscar dados do usuário:", error);
+        // Aqui você pode lidar com o erro, como redirecionar o usuário para uma página de erro
+      }
+    };
 
-  // Função para alternar entre os modos de leitura e edição
+    fetchUserData();
+  }, []);
+
   const toggleEditing = () => {
-    // Se estiver entrando no modo de edição, inicialize os valores temporários com os atuais
     if (!isEditing) {
-      setTempName(name);
-      setTempSurname(surname);
+      setTempName(userData.nome.split(" ")[0]); // Obtenha o primeiro nome do usuário
+      setTempSurname(userData.nome.split(" ")[1]); // Obtenha o sobrenome do usuário
     }
     setIsEditing(!isEditing);
   };
 
-  // Função para salvar as alterações
-  const saveChanges = () => {
-    // Atualiza os dados no localStorage
-    const updatedUserData = { ...userData, nome: `${tempName} ${tempSurname}` };
-    localStorage.setItem("cadastroData", JSON.stringify(updatedUserData));
-    setUserData(updatedUserData);
-
-    // Desativa o modo de edição após salvar as alterações
-    setIsEditing(false);
-  };
-
-  // Função para lidar com a alteração de email
-  const handleEmailChange = (newEmail) => {
-    if (newEmail !== originalEmail) {
-      handleLogout();
+  const saveChanges = async () => {
+    try {
+      const updatedUserData = {
+        ...userData,
+        nome: `${tempName} ${tempSurname}`,
+      };
+      // Faça uma requisição PUT para atualizar os dados do usuário no backend
+      await axios.put("http://localhost:3001/userdata", updatedUserData);
+      setUserData(updatedUserData);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Erro ao salvar alterações:", error);
+      // Aqui você pode lidar com o erro, como exibir uma mensagem para o usuário
     }
   };
 
-  // Função para deslogar o usuário
   const handleLogout = () => {
-    window.location.reload();
-    localStorage.removeItem("googleData");
-    localStorage.removeItem("cadastroData");
-    localStorage.setItem("isLoggedIn", false);
-    navigate("/cadastro");
+    // Lógica de logout
+  };
+
+  const handleImageChange = (e) => {
+    // Lógica para alterar a foto do perfil
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(originalEmail, userData.email);
-    // Verifica se o e-mail foi alterado
-    if (userData.email !== originalEmail) {
-      localStorage.removeItem("googleData");
-      localStorage.removeItem("cadastroData");
-      localStorage.setItem("isLoggedIn", false);
-      navigate("/cadastro");
-      window.location.reload();
-    }
+    // Lógica de submit do formulário
   };
 
   return (
     <section className="profileSection">
-      <div className="profileForm">
-        <div className="profileImage">
-          {/* Mostrar a foto de perfil da pessoa */}
-          <img
-            src={`https://ui-avatars.com/api/?name=${userData.nome}&background=random`}
-            alt="Foto de Perfil"
-          />
-          <div className="profileLinks">
-            <div className="DatasProfileBox">
-              <Link to={"/Profile"} className="linkData">
-                Seus dados
-              </Link>
-            </div>
-            <div className="separatorLine"></div> {/* Linha separadora */}
-            <div className="DatasProfileBox">
-              <Link to={"/newPassword"} className="linkData">
-                Alterar senha
-              </Link>
-            </div>
-          </div>
-        </div>
-        <form className="profileDetails" onSubmit={handleSubmit}>
-          <div className="name">
-            <label htmlFor="name">Nome:</label>
-            <input
-              type="text"
-              id="name"
-              value={isEditing ? tempName : name}
-              onChange={(e) => setTempName(e.target.value)}
-              readOnly={!isEditing} // readOnly depende do modo de edição
-            />
-            <label htmlFor="surname">Sobrenome:</label>
-            <input
-              type="text"
-              id="surname"
-              value={isEditing ? tempSurname : surname}
-              onChange={(e) => setTempSurname(e.target.value)}
-              readOnly={!isEditing} // readOnly depende do modo de edição
-            />
-          </div>
-          <div className="email">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={isEditing ? userData.email : userData.email}
-              onChange={(e) =>
-                setUserData({ ...userData, email: e.target.value })
+      {userData && (
+        <div className="profileForm">
+          <div className="profileImage">
+            {/* Mostrar a foto de perfil da pessoa */}
+            <img
+              src={
+                userData.fotoPerfil ||
+                `https://ui-avatars.com/api/?name=${userData.nome}&background=random`
               }
-              readOnly={!isEditing}
+              alt="Foto de Perfil"
             />
+            <div className="profileLinks">
+              <div className="DatasProfileBox">
+                <Link to={"/Profile"} className="linkData">
+                  Seus dados
+                </Link>
+              </div>
+              <div className="separatorLine"></div> {/* Linha separadora */}
+              <div className="DatasProfileBox">
+                <Link to={"/newPassword"} className="linkData">
+                  Alterar senha
+                </Link>
+              </div>
+              <label htmlFor="fotoPet" className="custom-file-upload">
+                Alterar foto
+              </label>
+              <input
+                type="file"
+                id="fotoPet"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+              />
+            </div>
           </div>
-          <div className="phone">
-            <label htmlFor="phone">Telefone:</label>
-            <input
-              type="tel"
-              id="phone"
-              value={isEditing ? userData.telefone : userData.telefone}
-              onChange={(e) =>
-                setUserData({ ...userData, telefone: e.target.value })
-              }
-              readOnly={!isEditing}
-            />
-          </div>
+          <form className="profileDetails" onSubmit={handleSubmit}>
+            <div className="name">
+              <label htmlFor="name">Nome:</label>
+              <input
+                type="text"
+                id="name"
+                value={isEditing ? tempName : userData.nome.split(" ")[0]} // Exibe o primeiro nome do usuário
+                onChange={(e) => setTempName(e.target.value)}
+                readOnly={!isEditing} // readOnly depende do modo de edição
+              />
+              <label htmlFor="surname">Sobrenome:</label>
+              <input
+                type="text"
+                id="surname"
+                value={isEditing ? tempSurname : userData.nome.split(" ")[1]} // Exibe o sobrenome do usuário
+                onChange={(e) => setTempSurname(e.target.value)}
+                readOnly={!isEditing} // readOnly depende do modo de edição
+              />
+            </div>
+            <div className="email">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                value={isEditing ? userData.email : userData.email}
+                onChange={(e) =>
+                  setUserData({ ...userData, email: e.target.value })
+                }
+                readOnly={!isEditing}
+              />
+            </div>
+            <div className="phone">
+              <label htmlFor="phone">Telefone:</label>
+              <input
+                type="tel"
+                id="phone"
+                value={isEditing ? userData.telefone : userData.telefone}
+                onChange={(e) =>
+                  setUserData({ ...userData, telefone: e.target.value })
+                }
+                readOnly={!isEditing}
+              />
+            </div>
 
-          <div className="state">
-            <label htmlFor="state">Estado:</label>
-            <input
-              type="text"
-              id="state"
-              value={isEditing ? userData.estado : userData.estado}
-              onChange={(e) =>
-                setUserData({ ...userData, estado: e.target.value })
-              }
-              readOnly={!isEditing}
-            />
-          </div>
-          <div className="city">
-            <label htmlFor="city">Cidade:</label>
-            <input
-              type="text"
-              id="city"
-              value={isEditing ? userData.cidade : userData.cidade}
-              onChange={(e) =>
-                setUserData({ ...userData, cidade: e.target.value })
-              }
-              readOnly={!isEditing}
-            />
-          </div>
-          <div className="buttonContainer">
-            {isEditing ? (
-              <button onClick={saveChanges} type="button">
-                Salvar Alterações
-              </button>
-            ) : (
-              <button onClick={toggleEditing} type="submit">
-                Alterar
-              </button>
-            )}
-          </div>
-        </form>
-      </div>
+            <div className="state">
+              <label htmlFor="state">Estado:</label>
+              <input
+                type="text"
+                id="state"
+                value={isEditing ? userData.estado : userData.estado}
+                onChange={(e) =>
+                  setUserData({ ...userData, estado: e.target.value })
+                }
+                readOnly={!isEditing}
+              />
+            </div>
+            <div className="city">
+              <label htmlFor="city">Cidade:</label>
+              <input
+                type="text"
+                id="city"
+                value={isEditing ? userData.cidade : userData.cidade}
+                onChange={(e) =>
+                  setUserData({ ...userData, cidade: e.target.value })
+                }
+                readOnly={!isEditing}
+              />
+            </div>
+            <div className="buttonContainer">
+              {isEditing ? (
+                <button onClick={saveChanges} type="button">
+                  Salvar Alterações
+                </button>
+              ) : (
+                <button onClick={toggleEditing} type="submit">
+                  Alterar
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
+      )}
     </section>
   );
 };

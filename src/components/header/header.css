@@ -13,11 +13,14 @@
   z-index: 1000;
 }
 
+
+
 #header .logo img {
   width: 6rem;
   cursor: pointer;
   margin-bottom: -2rem;
 }
+
 
 #header .navBar ul a {
   font-size: 1.6rem;
@@ -32,9 +35,10 @@
 
 .profile {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centraliza os elementos horizontalmente */
+  align-items: center; /* Centraliza os elementos verticalmente */
 }
+
 
 .profile-box-items {
   display: flex;
@@ -54,7 +58,9 @@
   cursor: pointer;
   border-radius: 0.5rem;
   width: 8rem;
+  position: relative; /* Adiciona posicionamento relativo */
 }
+
 
 .profile-box-items:hover {
   background: var(--hover-yellow);
@@ -73,10 +79,25 @@
   width: 4rem;
 }
 
-.profile-img-Logged {
-  width: 5rem;
+.profile-img-Logged-header {
+  padding: 1rem;
+  width: 9rem; /* Defina a largura da imagem */
+  height: 9rem; /* Defina a altura da imagem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem; /* Adiciona um espaçamento à direita */
+  font-size: 1.5rem;
   border-radius: 50%; /* Isso torna a imagem redonda */
+  position: relative;
 }
+
+.profile-img-Logged-header img {
+  width: 100%; /* Ajusta a largura para preencher o contêiner */
+  height: 100%; /* Ajusta a altura para preencher o contêiner */
+  border-radius: 50%;
+}
+
 
 .icons #menuBar,
 .icons #menuClosed {
@@ -92,12 +113,12 @@
 
 .mini-menu {
   position: absolute;
-  top: 8.5rem; /* Ajuste conforme necessário */
-  right: 6.4%;
+  top: 9rem; /* Ajuste conforme necessário */
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  padding: 1.5rem;
+  width: 10rem;
+  height: 10rem;
   z-index: 999; /* Certifique-se de que o mini-menu esteja sobreposto a outros elementos */
   display: flex;
   flex-direction: column;
@@ -113,16 +134,4 @@
 
 .mini-menu p:hover {
   color: blue; /* Adicione o estilo desejado para o hover */
-}
-
-.profile-img-Logged {
-  width: 5rem; /* Defina a largura da imagem */
-  height: 5rem; /* Defina a altura da imagem */
-  border-radius: 50%; /* Isso torna a imagem redonda */
-  background-color: white; /* Adiciona um fundo branco */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem; /* Adiciona um espaçamento à direita */
-  font-size: 1.5rem;
 }

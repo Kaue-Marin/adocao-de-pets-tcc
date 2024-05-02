@@ -23,7 +23,7 @@ export const Cadastro = () => {
     e.preventDefault();
 
     const formData = {
-      nome: nome + " " + sobrenome,
+      nome: nome,
       email: email,
       senha: senha,
       telefone: telefone,
@@ -33,23 +33,20 @@ export const Cadastro = () => {
       estado: estado,
       endereco: endereco,
     };
-    localStorage.setItem("cadastroData", JSON.stringify(formData));
-    localStorage.setItem("isLoggedIn", true); // Adicionando a informação de login
-    navigate("/adote");
-    window.location.reload();
-    /* try {
-      const response = await axios.post('http://localhost/testemysql/formulario.php', formData);
-      console.log(response.data); // Verifique a resposta do servidor
 
-      // Você pode adicionar lógica adicional aqui, como redirecionar o usuário para outra página
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/register",
+        formData
+      );
+      console.log(response.data);
       localStorage.setItem("cadastroData", JSON.stringify(formData));
-      localStorage.setItem("isLoggedIn", true); // Adicionando a informação de login
+      localStorage.setItem("isLoggedIn", true);
       navigate("/adote");
       window.location.reload();
     } catch (error) {
-      console.error('Erro ao enviar dados do formulário:', error);
-      // Você pode lidar com o erro de forma apropriada aqui, como exibir uma mensagem de erro para o usuário
-    }*/
+      console.error("Erro ao enviar dados do formulário:", error);
+    }
   };
 
   return (

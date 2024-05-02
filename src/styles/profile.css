@@ -19,6 +19,9 @@
 .profileImage {
   padding: 1rem;
   border-right: 1px solid #333; /* Alterando a cor da borda lateral */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .profileImage img {
@@ -32,6 +35,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 15rem;
+
 }
 
 .profileLinks .DatasProfileBox {
@@ -102,6 +107,24 @@
 .buttonContainer button:hover {
   background-color: #555;
 }
+
+.custom-file-upload {
+  cursor: pointer;
+  display: inline-block;
+  width: 13rem;
+  height: 2rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
 
 @media (max-width: 500px) {
   .name,

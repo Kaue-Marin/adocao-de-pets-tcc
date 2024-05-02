@@ -98,7 +98,7 @@ const nomes = [
     "Breno",
     "Davi Luiz",
     "Thales",
-    "Israel",
+    "Israel", 
   ];
 
 export default nomes
