@@ -12,7 +12,9 @@ export const ProfilePet = ({ pets }) => {
   const { petId } = useParams();
   const navigate = useNavigate();
   const [exitOverlay, setExitOverlay] = useState(false);
-  const [authenticated, setAuthenticated] = useState(localStorage.getItem("isLoggedIn"))
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
   const toggleOverlay = () => {
     if (authenticated !== "true") {
       navigate("/cadastro");
@@ -20,7 +22,6 @@ export const ProfilePet = ({ pets }) => {
       setExitOverlay(!exitOverlay);
     }
   };
-  
 
   const pet = pets[petId];
 

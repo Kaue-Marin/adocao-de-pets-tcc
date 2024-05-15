@@ -19,6 +19,7 @@ import { ProfilePet } from "./components/pets/profilePet/ProfilePet.jsx";
 import GerarPets from "./utils/GerarPet.js"; // Importe a função que gera os pets
 import { Profile } from "./pages/Profile.jsx";
 import { NewPassword } from "./pages/NewPassword.jsx";
+import { Footer } from "./components/footer/Footer.jsx";
 
 const pets = GerarPets();
 
@@ -44,5 +45,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/newPassword" element={<NewPassword />} />
       </Routes>
     </BrowserRouter>
+    <Footer />
   </React.StrictMode>
 );

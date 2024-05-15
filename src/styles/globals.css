@@ -213,7 +213,9 @@ body {
 }
 
 @media (max-width: 731px) {
-  .caracteristicasPet, .informacoesDoPet, .descriptionPet {
+  .caracteristicasPet,
+  .informacoesDoPet,
+  .descriptionPet {
     display: flex;
     justify-content: center;
     align-items: center;

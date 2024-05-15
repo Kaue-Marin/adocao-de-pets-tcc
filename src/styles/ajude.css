@@ -1,0 +1,181 @@
+/* ajude.css */
+
+/* Estilos para o container principal */
+.ajude-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10rem;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Estilos para o banner */
+.banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in;
+}
+
+.banner:hover .banner-img {
+  transform: scale(1.05);
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 10rem;
+  left: 8rem;
+  color: #fff;
+}
+
+.banner-title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.banner-brand {
+  font-size: 1.1rem;
+}
+
+.bone-icon {
+  font-size: 3rem;
+  margin-top: 10px;
+  color: #fff;
+}
+
+/* Estilos para a seção "O que fazemos" */
+.oquefazemos {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  animation: fadeInTitle 1s forwards ease;
+}
+
+.about-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.about-text {
+  font-size: 1.6rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  animation: fadeInText 1s forwards ease;
+  width: 40rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.about-text-2 {
+  font-size: 1.6rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  animation: fadeInText 1s forwards ease;
+  width: 90%;
+  margin-top: 0.5rem;
+}
+
+/* Estilos para os cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.card {
+  width: calc(33.33% - 1rem);
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+  margin: 0;
+}
+
+/* Estilos para a seção de doações */
+.donations-section {
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.donations-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.donations-section p {
+  font-size: 1.6rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.donation-methods {
+  margin-top: 2rem;
+}
+
+.donation-methods h4 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.donation-methods p {
+  font-size: 1.6rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.donation-methods ul {
+  list-style: none;
+  padding: 0;
+}
+
+.donation-methods li {
+  font-size: 1.6rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.donate-btn {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #007bff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.donate-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,6 +1,6 @@
 .profileSection {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +36,6 @@
   flex-direction: column;
   justify-content: center;
   width: 15rem;
-
 }
 
 .profileLinks .DatasProfileBox {
@@ -124,7 +123,6 @@
 .custom-file-upload:hover {
   background-color: #0056b3;
 }
-
 
 @media (max-width: 500px) {
   .name,
