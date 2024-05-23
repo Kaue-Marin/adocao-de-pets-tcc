@@ -12,6 +12,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px; /* Adicionando border radius ao banner */
+  margin-bottom: 10rem;
 }
 
 .banner-img {
@@ -64,8 +65,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   margin-bottom: 4rem; /* Adicionando margem inferior */
+  flex-wrap: wrap;
+  width: 100rem !important; 
 }
 
 .about-text {
@@ -129,8 +131,6 @@
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 10px;
-  margin-right: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out; /* Adicionando transição */
 }
 
@@ -147,4 +147,31 @@
 
 .reverse {
   flex-direction: row-reverse; /* Inverte a direção da linha para posicionar o card à esquerda */
+}
+
+@media (max-width: 999px) {
+
+  .about-box {
+    width: 100% !important; 
+  }
+  
+}
+
+@media (max-width: 420px) {
+
+  .pet-card {
+    width: 100%;
+    height: 100%;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  
+  .pet-card img {
+    width: 25rem;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
 }

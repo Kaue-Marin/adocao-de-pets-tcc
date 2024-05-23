@@ -8,15 +8,17 @@ import imgCardPet from "../assets/isolated-happy-smiling-dog-white-background-po
 export const About = () => {
   return (
     <div className="about-container">
-      <div className="banner" style={{ marginBottom: "5rem" }}>
+      <div className="banner">
         <img src={bannerImg} alt="Banner" className="banner-img" />
-        <div className="banner-text">
-          <h1 className="banner-title">Adoção de Pets</h1>
-          <p className="banner-brand">Seu Pet, Nossa Paixão</p>{" "}
-          {/* Texto fictício */}
-          <FaBone className="bone-icon" /> {/* Usando o ícone de osso */}
+        <div className="banner-content">
+          <div className="banner-text">
+            <h1 className="banner-title">Adoção de Pets</h1>
+            <p className="banner-brand">Seu Pet, Nossa Paixão</p>
+            <FaBone className="bone-icon" />
+          </div>
         </div>
       </div>
+
       <div className="oquefazemos">
         <div className="about-title">O que fazemos</div>
         <div className="about-box">

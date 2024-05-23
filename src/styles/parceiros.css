@@ -1,7 +1,4 @@
-/* ajude.css */
-
-/* Estilos para o container principal */
-.ajude-container {
+.parceiros-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -44,7 +41,7 @@
   font-size: 1.1rem;
 }
 
-.bone-icon {
+.handshake-icon {
   font-size: 3rem;
   margin-top: 10px;
   color: #fff;
@@ -96,15 +93,16 @@
 }
 
 /* Estilos para os cards */
-.card-container {
+.partner-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
+  gap: 1rem;
 }
 
 .card {
-  width: calc(33.33% - 1rem);
+  width: 18rem;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 1.5rem;
@@ -116,54 +114,26 @@
   margin: 0;
 }
 
-/* Estilos para a seção de doações */
-.donations-section {
+/* Estilos para a seção de parceiros */
+.partner-list-section {
   margin-top: 4rem;
   padding-bottom: 4rem;
 }
 
-.donations-section h2 {
+.partner-list-section h2 {
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 20px;
 }
 
-.donations-section p {
+.partner-list-section p {
   font-size: 1.6rem;
   color: #444;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.donation-methods {
-  margin-top: 2rem;
-}
-
-.donation-methods h4 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.donation-methods p {
-  font-size: 1.6rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.donation-methods ul {
-  list-style: none;
-  padding: 0;
-}
-
-.donation-methods li {
-  font-size: 1.6rem;
-  color: #444;
-  line-height: 1.6;
-}
-
-.donate-btn {
+.partner-btn {
   display: inline-block;
   font-size: 1.6rem;
   color: #fff;
@@ -176,25 +146,35 @@
   text-decoration: none;
 }
 
-.donate-btn:hover {
+.partner-btn:hover {
   background-color: #0056b3;
 }
 
-@media (max-width: 420px) {
-
-  .pet-card {
-    width: 300px;
-    height: 240px;
-    background-color: transparent !important;
-    border: none !important;
+.partner-card {
+    width: 300px; /* Ajuste o valor conforme necessário */
+    height: auto;
   }
-
   
-  .pet-card img {
-    width: 25rem;
-    height: 70%;
-    object-fit: cover;
-    border-radius: 10px;
+  .partner-card img {
+    width: 100%;
+    border-radius: 8px;
   }
+  
+  @media (max-width: 420px) {
 
-}
+    .pet-card {
+      width: 300px;
+      height: 240px;
+      background-color: transparent !important;
+      border: none !important;
+    }
+  
+    
+    .pet-card img {
+      width: 25rem;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  
+  }

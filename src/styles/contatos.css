@@ -1,0 +1,214 @@
+/* Estilos para o banner de contatos */
+
+  .contato-section {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+  .banner-contact {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10rem;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .banner-img-contact {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in;
+    border-radius: .5rem;
+  }
+  
+  .banner-contact:hover .banner-img-contact {
+    transform: scale(1.05);
+  }
+  
+  .banner-text-contact {
+    position: absolute;
+    bottom: 10rem;
+    left: 8rem;
+    color: #fff;
+  }
+  
+  .banner-title-contact {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  .banner-brand-contact {
+    font-size: 1.1rem;
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+    margin-top: 1.4rem;
+    color: #fff;
+  }
+  
+  /* Estilos para a seção de contato */
+  .contact-box {
+    display: flex; /* Alterado para display flex */
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-informations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    height: 52rem;
+    padding: 5rem;
+  }
+  
+  .contact-informations .contact-informations-item {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .contact-informations .contact-informations-item .icon-informations {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-informations .contact-informations-item .icon-informations h2 {
+    font-size: 1.6rem;
+    color: var(--color-black);
+  }
+  
+  .contact-informations .contact-informations-item .icon-informations .icon {
+    font-size: 3rem;
+    display: block;
+    color: #2aaa90;
+  }
+  
+  .contact-informations .contact-informations-item span {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+    text-transform: none;
+    color: var(--color-gray);
+  }
+  
+  .contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 800px;
+}
+  
+  form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;    
+  }
+  
+  form .boxInput {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+  }
+  
+  form .boxInput input,
+  form .boxInput textarea {
+    width: 100%;
+    background: var(--color-white);
+    color: var(--color-black);
+    font-size: 1.7rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-transform: none;
+  }
+  
+  form .boxInput textarea {
+    resize: vertical;
+  }
+  
+  form .boxInput input::placeholder,
+  form .boxInput textarea::placeholder {
+    color: var(--color-gray);
+    font-size: 1.6rem;
+  }
+  
+  .btn {
+    padding: 1rem 2rem;
+    border: none;
+    background-color: var(--first-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.6rem;
+  }
+  
+  .btn-submit {
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-box {
+      flex-direction: column; /* Altera para empilhar os itens verticalmente */
+    }
+    
+    .contact-informations,
+    .contact-form {
+      max-width: 100%; /* Define a largura máxima como 100% para ocupar a largura total da tela */
+    }
+    
+    .banner-text-contact {
+      position: static; /* Remove a posição absoluta para que o texto fique no fluxo normal do documento */
+      margin-top: 2rem; /* Adiciona margem superior para separar do banner */
+    }
+    
+    .contact-informations,
+    .contact-form {
+      padding: 1rem; /* Reduz o preenchimento para economizar espaço */
+    }
+  }
+
+  @media (max-width: 420px) {
+
+    .pet-card {
+      width: 300px;
+      height: 240px;
+      background-color: transparent !important;
+      border: none !important;
+    }
+  
+    
+    .pet-card img {
+      width: 25rem;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  
+  }

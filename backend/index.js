@@ -13,6 +13,58 @@ const db = mysql.createPool({
 app.use(express.json());
 app.use(cors());
 
+app.post("/pets", (req, res) => {
+  const {
+    tutor,
+    celular,
+    email,
+    descricaoPet,
+    localizacaoPet,
+    especie,
+    sexo,
+    porte,
+    cidade,
+    estado,
+    nomeAnimal,
+  } = req.body;
+
+  const dataPublicacao = new Date().toISOString().slice(0, 10); // Formato 'YYYY-MM-DD'
+  const visualizacoes = 0;
+
+  const query = `
+    INSERT INTO pets (tutor, celular, email, descricaoPet, localizacaoPet, especie, sexo, porte, cidade, estado, dataPublicacao, visualizacoes, nomeAnimal)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    query,
+    [
+      tutor,
+      celular,
+      email,
+      descricaoPet,
+      localizacaoPet,
+      especie,
+      sexo,
+      porte,
+      cidade,
+      estado,
+      dataPublicacao,
+      visualizacoes,
+      nomeAnimal,
+    ],
+    (err, result) => {
+      if (err) {
+        console.error("Erro ao inserir pet no banco de dados:", err);
+        res.status(500).send("Erro interno ao processar a requisição");
+      } else {
+        console.log("Pet cadastrado com sucesso:", result);
+        res.status(200).send("Pet cadastrado com sucesso");
+      }
+    }
+  );
+});
+
 app.post("/register", (req, res) => {
   const data = req.body;
   const {

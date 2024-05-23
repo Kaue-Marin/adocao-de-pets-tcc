@@ -45,6 +45,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/newPassword" element={<NewPassword />} />
       </Routes>
     </BrowserRouter>
-    <Footer />
   </React.StrictMode>
 );
