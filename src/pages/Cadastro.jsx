@@ -40,10 +40,7 @@ export const Cadastro = () => {
         formData
       );
       console.log(response.data);
-      localStorage.setItem("cadastroData", JSON.stringify(formData));
-      localStorage.setItem("isLoggedIn", true);
-      navigate("/adote");
-      window.location.reload();
+      navigate("/login");
     } catch (error) {
       console.error("Erro ao enviar dados do formulário:", error);
     }

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios"; // Importe o axios para fazer requisições HTTP
+import axios from "axios";
 import "../styles/profile.css";
 
 export const Profile = () => {
-  const [userData, setUserData] = useState(null); // Inicialize userData como null
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
   const splitName = (fullName) => {
@@ -24,15 +24,14 @@ export const Profile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userId = localStorage.getItem("userId"); // Obtém o ID do usuário do localStorage
+        const userId = localStorage.getItem("userId");
         if (!userId) {
-          // Se o ID do usuário não estiver presente, redirecione para a página de login
           navigate("/login");
           return;
         }
         const response = await axios.get(
           `http://localhost:3001/userdata/${userId}`
-        ); // Envie o ID do usuário na URL da solicitação GET
+        );
         setUserData(response.data);
         setOriginalEmail(response.data.email);
         const { firstName, lastName } = splitName(response.data.nome);
@@ -40,7 +39,6 @@ export const Profile = () => {
         setTempSurname(lastName);
       } catch (error) {
         console.error("Erro ao buscar dados do usuário:", error);
-        // Aqui você pode lidar com o erro, como redirecionar o usuário para uma página de erro
       }
     };
 
@@ -49,26 +47,10 @@ export const Profile = () => {
 
   const toggleEditing = () => {
     if (!isEditing) {
-      setTempName(userData.nome.split(" ")[0]); // Obtenha o primeiro nome do usuário
-      setTempSurname(userData.nome.split(" ")[1]); // Obtenha o sobrenome do usuário
+      setTempName(userData.nome.split(" ")[0]);
+      setTempSurname(userData.nome.split(" ")[1]);
     }
     setIsEditing(!isEditing);
-  };
-
-  const saveChanges = async () => {
-    try {
-      const updatedUserData = {
-        ...userData,
-        nome: `${tempName} ${tempSurname}`,
-      };
-      // Faça uma requisição PUT para atualizar os dados do usuário no backend
-      await axios.put("http://localhost:3001/userdata", updatedUserData);
-      setUserData(updatedUserData);
-      setIsEditing(false);
-    } catch (error) {
-      console.error("Erro ao salvar alterações:", error);
-      // Aqui você pode lidar com o erro, como exibir uma mensagem para o usuário
-    }
   };
 
   const handleLogout = () => {
@@ -79,8 +61,28 @@ export const Profile = () => {
     // Lógica para alterar a foto do perfil
   };
 
-  const handleSubmit = (e) => {
-    // Lógica de submit do formulário
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const userId = localStorage.getItem("userId");
+      const updatedUser = {
+        nome: `${tempName} ${tempSurname}`,
+        email: userData.email,
+        telefone: userData.telefone,
+        cidade: userData.cidade,
+        estado: userData.estado,
+      };
+      await axios.put(`http://localhost:3001/userdata/${userId}`, updatedUser);
+      setUserData(updatedUser);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Erro ao atualizar dados do usuário:", error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setUserData({ ...userData, [id]: value });
   };
 
   return (
@@ -88,7 +90,6 @@ export const Profile = () => {
       {userData && (
         <div className="profileForm">
           <div className="profileImage">
-            {/* Mostrar a foto de perfil da pessoa */}
             <img
               src={
                 userData.fotoPerfil ||
@@ -102,7 +103,7 @@ export const Profile = () => {
                   Seus dados
                 </Link>
               </div>
-              <div className="separatorLine"></div> {/* Linha separadora */}
+              <div className="separatorLine"></div>
               <div className="DatasProfileBox">
                 <Link to={"/newPassword"} className="linkData">
                   Alterar senha
@@ -126,17 +127,17 @@ export const Profile = () => {
               <input
                 type="text"
                 id="name"
-                value={isEditing ? tempName : userData.nome.split(" ")[0]} // Exibe o primeiro nome do usuário
+                value={isEditing ? tempName : userData.nome.split(" ")[0]}
                 onChange={(e) => setTempName(e.target.value)}
-                readOnly={!isEditing} // readOnly depende do modo de edição
+                readOnly={!isEditing}
               />
               <label htmlFor="surname">Sobrenome:</label>
               <input
                 type="text"
                 id="surname"
-                value={isEditing ? tempSurname : userData.nome.split(" ")[1]} // Exibe o sobrenome do usuário
+                value={isEditing ? tempSurname : userData.nome.split(" ")[1]}
                 onChange={(e) => setTempSurname(e.target.value)}
-                readOnly={!isEditing} // readOnly depende do modo de edição
+                readOnly={!isEditing}
               />
             </div>
             <div className="email">
@@ -144,7 +145,7 @@ export const Profile = () => {
               <input
                 type="email"
                 id="email"
-                value={isEditing ? userData.email : userData.email}
+                value={userData.email}
                 onChange={(e) =>
                   setUserData({ ...userData, email: e.target.value })
                 }
@@ -156,20 +157,19 @@ export const Profile = () => {
               <input
                 type="tel"
                 id="phone"
-                value={isEditing ? userData.telefone : userData.telefone}
+                value={userData.telefone}
                 onChange={(e) =>
                   setUserData({ ...userData, telefone: e.target.value })
                 }
                 readOnly={!isEditing}
               />
             </div>
-
             <div className="state">
               <label htmlFor="state">Estado:</label>
               <input
                 type="text"
                 id="state"
-                value={isEditing ? userData.estado : userData.estado}
+                value={userData.estado}
                 onChange={(e) =>
                   setUserData({ ...userData, estado: e.target.value })
                 }
@@ -181,7 +181,7 @@ export const Profile = () => {
               <input
                 type="text"
                 id="city"
-                value={isEditing ? userData.cidade : userData.cidade}
+                value={userData.cidade}
                 onChange={(e) =>
                   setUserData({ ...userData, cidade: e.target.value })
                 }
@@ -190,11 +190,11 @@ export const Profile = () => {
             </div>
             <div className="buttonContainer">
               {isEditing ? (
-                <button onClick={saveChanges} type="button">
+                <button type="button" onClick={handleSubmit}>
                   Salvar Alterações
                 </button>
               ) : (
-                <button onClick={toggleEditing} type="submit">
+                <button type="button" onClick={toggleEditing}>
                   Alterar
                 </button>
               )}

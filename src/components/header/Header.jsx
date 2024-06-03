@@ -96,7 +96,11 @@ const Header = () => {
               onClick={toggleProfileMenu}
             >
               <div className="profile-img-Logged-header">
-                <img src={imageProfile} alt="Foto de Perfil" style={{ width: '70px' }} />
+                <img
+                  src={imageProfile}
+                  alt="Foto de Perfil"
+                  style={{ width: "70px" }}
+                />
                 {showProfileMenu && (
                   <div className="mini-menu">
                     <Link to={"/profile"}>

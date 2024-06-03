@@ -27,9 +27,7 @@ const GerarPets = async () => {
       },
     }));
 
-    // Armazenar os pets no localStorage
-    localStorage.setItem("pets", JSON.stringify(pets));
-
+    // Retornar os dados dos pets sem armazenar no localStorage
     return pets;
   } catch (error) {
     console.error("Erro ao buscar os dados dos pets:", error);

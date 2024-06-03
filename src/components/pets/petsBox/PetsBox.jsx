@@ -3,15 +3,7 @@ import axios from "axios";
 import "./PetsBox.css";
 import { Link } from "react-router-dom";
 
-export const PetsBox = ({
-  especie,
-  sexo,
-  porte,
-  estado,
-  cidade,
-  nome,
-  numPetsVisiveis,
-}) => {
+export const PetsBox = ({ filters }) => {
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
@@ -23,32 +15,11 @@ export const PetsBox = ({
 
         // Filtrar os pets de acordo com os critérios especificados
         const filteredPets = petsData.filter((pet) => {
-          // Filtro de espécie
-          if (especie !== "todos" && pet.especie !== especie) {
-            return false;
-          }
-          // Filtro de sexo
-          if (sexo !== "todos" && pet.sexo !== sexo) {
-            return false;
-          }
-          // Filtro de porte
-          if (porte !== "todos" && pet.porte !== porte) {
-            return false;
-          }
-          // Filtro de estado
-          if (estado !== "todos" && pet.estado !== estado) {
-            return false;
-          }
-          // Filtro de cidade
-          if (cidade !== "todos" && pet.cidade !== cidade) {
-            return false;
-          }
-          // Filtro de nome
-          if (
-            nome.trim() !== "" &&
-            !pet.nome.toLowerCase().includes(nome.toLowerCase())
-          ) {
-            return false;
+          // Verificar se o pet atende a todos os critérios de filtro
+          for (let key in filters) {
+            if (filters[key] !== "todos" && pet[key] !== filters[key]) {
+              return false;
+            }
           }
           return true;
         });
@@ -60,11 +31,11 @@ export const PetsBox = ({
     };
 
     fetchPets();
-  }, [especie, sexo, porte, estado, cidade, nome]);
+  }, [filters]);
 
   return (
     <div className="petsBox">
-      {pets.slice(0, numPetsVisiveis).map((pet) => (
+      {pets.map((pet) => (
         <Link to={`/profilePet/${pet.id}`} key={pet.id}>
           <div className="pet" key={pet.id}>
             <img

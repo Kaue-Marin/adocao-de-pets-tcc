@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios"; // Importe o axios para fazer requisições HTTP
 import "../styles/newPassword.css";
 
 export const NewPassword = () => {
@@ -11,21 +12,36 @@ export const NewPassword = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const [passwordIncorrect, setPasswordIncorrect] = useState(false); // Estado para verificar se a senha atual está incorreta
 
-  const handleSubmit = (e) => {
+  // Parte de handleSubmit em NewPassword.jsx
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Obter os dados do localStorage
-    const formData = JSON.parse(localStorage.getItem("cadastroData"));
-
-    // Exibir a senha antiga e a nova no console
-    console.log("Senha antiga:", formData.senha);
-    console.log("Nova senha:", newPassword);
-
-    // Atualizar a senha nos dados do localStorage com a nova senha
-    formData.senha = newPassword;
-    localStorage.setItem("cadastroData", JSON.stringify(formData));
-    console.log(formData);
+    try {
+      const userId = localStorage.getItem("userId");
+      // Verifique se as senhas nova e confirmada são iguais
+      if (newPassword !== confirmNewPassword) {
+        // Lógica para lidar com senhas diferentes
+        return;
+      }
+      // Envie a solicitação para atualizar a senha
+      await axios.put(`http://localhost:3001/userdata/${userId}/password`, {
+        senha: newPassword,
+      });
+      // Limpe os campos
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmNewPassword("");
+      setPasswordIncorrect(false); // Resetar o aviso de senha incorreta
+      // Lógica de sucesso
+    } catch (error) {
+      console.error("Erro ao atualizar senha do usuário:", error);
+      // Verificar se o erro indica que a senha atual está incorreta
+      if (error.response && error.response.status === 401) {
+        setPasswordIncorrect(true);
+      }
+      // Lógica para lidar com outros erros
+    }
   };
 
   return (
@@ -65,6 +81,9 @@ export const NewPassword = () => {
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
               />
+              {passwordIncorrect && (
+                <span className="passwordIncorrect">Senha atual incorreta</span>
+              )}
             </div>
             <div className="passwordField">
               <label htmlFor="newPassword">Nova senha:</label>

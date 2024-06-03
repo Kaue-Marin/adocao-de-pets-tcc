@@ -9,18 +9,18 @@ const db = mysql.createPool({
   user: "root",
   password: "samanta22",
   database: "cadastro_db",
+  connectTimeout: 60000,
+  acquireTimeout: 60000,
+  timeout: 60000,
 });
 
 app.use(express.json());
 app.use(cors());
-
-// Middleware para parsing de JSON
-app.use(express.json({ limit: "50mb" })); // Aumentar o limite para suportar uploads de imagem
+app.use(express.json({ limit: "50mb" }));
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Endpoint para cadastro de pets com imagem
 app.post("/pets", upload.single("imagemPet"), (req, res) => {
   const {
     tutor,
@@ -35,7 +35,7 @@ app.post("/pets", upload.single("imagemPet"), (req, res) => {
     estado,
     nomeAnimal,
   } = req.body;
-  const dataPublicacao = new Date().toISOString().slice(0, 10); // Formato 'YYYY-MM-DD'
+  const dataPublicacao = new Date().toISOString().slice(0, 10);
   const visualizacoes = 0;
   const imagemPet = req.file ? req.file.buffer : null;
   const imagemMimeType = req.file ? req.file.mimetype : null;
@@ -74,20 +74,46 @@ app.post("/pets", upload.single("imagemPet"), (req, res) => {
   );
 });
 
-app.post("/login", (req, res) => {
-  const email = req.body.email;
-  const senha = req.body.senha;
+app.get("/pets/:id", (req, res) => {
+  const petId = req.params.id;
+  const query = "SELECT * FROM pets WHERE id = ?";
 
-  db.query(
-    "SELECT * FROM usuarios WHERE email = ? AND senha = ?",
-    [email, senha],
-    (err, result) => {
-      if (err) {
-        res.send(err);
-      }
-      res.send(result);
+  db.query(query, [petId], (err, result) => {
+    if (err) {
+      console.error("Erro ao buscar pet no banco de dados:", err);
+      return res.status(500).send("Erro interno ao processar a requisição");
     }
-  );
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: "Pet não encontrado" });
+    }
+
+    const pet = result[0];
+    const petWithBase64Image = {
+      ...pet,
+      imagemPet: pet.imagemPet ? pet.imagemPet.toString("base64") : null,
+    };
+
+    res.status(200).json(petWithBase64Image);
+  });
+});
+
+app.get("/pets", (req, res) => {
+  const query = "SELECT * FROM pets";
+
+  db.query(query, (err, result) => {
+    if (err) {
+      console.error("Erro ao buscar pets no banco de dados:", err);
+      return res.status(500).send("Erro interno ao processar a requisição");
+    }
+
+    const pets = result.map((pet) => ({
+      ...pet,
+      imagemPet: pet.imagemPet ? pet.imagemPet.toString("base64") : null,
+    }));
+
+    res.status(200).json(pets);
+  });
 });
 
 app.get("/userdata/:id", (req, res) => {
@@ -105,37 +131,109 @@ app.get("/userdata/:id", (req, res) => {
     }
   });
 });
-
-// Rota para atualizar os dados do usuário
-app.put("/userdata", (req, res) => {
-  const userData = req.body;
-  const userId = req.body.id; // Obtém o ID do usuário do corpo da requisição
-  const query = "UPDATE usuarios SET ? WHERE id = ?"; // Supondo que você tenha uma coluna 'id' na tabela 'usuarios'
-  db.query(query, [userData, userId], (err, result) => {
-    if (err) {
-      res.status(500).json({ error: "Erro ao atualizar dados do usuário" });
-    } else {
-      res.json({ message: "Dados do usuário atualizados com sucesso" });
+app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const senha = req.body.senha;
+  db.query(
+    "SELECT * FROM usuarios WHERE email = ? AND senha = ?",
+    [email, senha],
+    (err, result) => {
+      if (err) {
+        res.send(err);
+      }
+      res.send(result);
     }
-  });
+  );
 });
 
-// Endpoint para buscar todos os pets com suas imagens
-app.get("/pets", (req, res) => {
-  const query = "SELECT * FROM pets";
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error("Erro ao buscar pets no banco de dados:", err);
-      return res.status(500).send("Erro interno ao processar a requisição");
+app.post("/register", (req, res) => {
+  const data = req.body;
+  const {
+    nome,
+    email,
+    senha,
+    telefone,
+    genero,
+    data_nascimento,
+    cidade,
+    estado,
+    endereco,
+  } = data;
+
+  db.query(
+    "INSERT INTO usuarios (nome, email, senha, telefone, genero, data_nascimento, cidade, estado, endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [
+      nome,
+      email,
+      senha,
+      telefone,
+      genero,
+      data_nascimento,
+      cidade,
+      estado,
+      endereco,
+    ],
+    (err, response) => {
+      if (err) {
+        console.error("Erro ao inserir usuário no banco de dados:", err);
+        res.status(500).send("Erro interno ao processar a requisição");
+      } else {
+        // Obter o ID do usuário inserido
+        const userId = response.insertId;
+        // Enviar o ID do usuário na resposta
+        res
+          .status(200)
+          .send({ message: "Usuário cadastrado com sucesso", userId });
+      }
     }
+  );
+});
 
-    // Converter as imagens para base64
-    const pets = results.map((pet) => ({
-      ...pet,
-      imagemPet: pet.imagemPet ? pet.imagemPet.toString("base64") : null,
-    }));
+app.put("/userdata/:id", (req, res) => {
+  const userId = req.params.id;
+  const { nome, email, telefone, cidade, estado } = req.body;
 
-    res.status(200).json(pets);
+  const query = `
+    UPDATE usuarios
+    SET nome = ?, email = ?, telefone = ?, cidade = ?, estado = ?
+    WHERE id = ?
+  `;
+
+  db.query(
+    query,
+    [nome, email, telefone, cidade, estado, userId],
+    (err, result) => {
+      if (err) {
+        console.error("Erro ao atualizar dados do usuário:", err);
+        return res
+          .status(500)
+          .json({ error: "Erro interno ao processar a requisição" });
+      }
+      res.status(200).send("Dados do usuário atualizados com sucesso");
+    }
+  );
+});
+
+// Parte de app.put em server.js
+app.put("/userdata/:id/password", (req, res) => {
+  const userId = req.params.id;
+  const { senha } = req.body;
+
+  // Execute a consulta para atualizar a senha do usuário
+  const query = `
+    UPDATE usuarios
+    SET senha = ?
+    WHERE id = ?
+  `;
+
+  db.query(query, [senha, userId], (err, result) => {
+    if (err) {
+      console.error("Erro ao atualizar senha do usuário:", err);
+      return res
+        .status(500)
+        .json({ error: "Erro interno ao processar a requisição" });
+    }
+    res.status(200).send("Senha do usuário atualizada com sucesso");
   });
 });
 
