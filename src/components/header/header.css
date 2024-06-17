@@ -13,32 +13,36 @@
   z-index: 1000;
 }
 
-
-
 #header .logo img {
   width: 6rem;
   cursor: pointer;
   margin-bottom: -2rem;
 }
 
+#header .navBar {
+  display: flex;
+}
+
+#header .navBar.active {
+  display: flex;
+}
 
 #header .navBar ul a {
   font-size: 1.6rem;
-  color: var(--black);
+  color: #fff;
   margin-left: 3rem;
 }
 
 #header .navBar ul a:hover {
   border-bottom: 0.1rem solid var(--hover-backgorund-color);
-  color: var(--black);
+  color: #fff;
 }
 
 .profile {
   display: flex;
-  justify-content: center; /* Centraliza os elementos horizontalmente */
-  align-items: center; /* Centraliza os elementos verticalmente */
+  justify-content: center;
+  align-items: center;
 }
-
 
 .profile-box-items {
   display: flex;
@@ -58,12 +62,11 @@
   cursor: pointer;
   border-radius: 0.5rem;
   width: 8rem;
-  position: relative; /* Adiciona posicionamento relativo */
+  position: relative;
 }
 
-
 .profile-box-items:hover {
-  background: var(--hover-yellow);
+  background: #146474;
 }
 
 .profile-box-items + .profile-box-items {
@@ -72,7 +75,7 @@
 
 .profile-box-items p {
   font-size: 1.7rem;
-  color: var(--black);
+  color: #fff;
 }
 
 .profile-img {
@@ -81,26 +84,24 @@
 
 .profile-img-Logged-header {
   padding: 1rem;
-  width: 9rem; /* Defina a largura da imagem */
-  height: 9rem; /* Defina a altura da imagem */
+  width: 9rem;
+  height: 9rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1rem; /* Adiciona um espaçamento à direita */
+  margin-right: 1rem;
   font-size: 1.5rem;
-  border-radius: 50%; /* Isso torna a imagem redonda */
+  border-radius: 50%;
   position: relative;
 }
 
 .profile-img-Logged-header img {
-  width: 100%; /* Ajusta a largura para preencher o contêiner */
-  height: 100%; /* Ajusta a altura para preencher o contêiner */
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 
-
-.icons #menuBar,
-.icons #menuClosed {
+.icons #menuToggle {
   cursor: pointer;
   font-size: 3rem;
   margin-left: 4rem;
@@ -113,13 +114,13 @@
 
 .mini-menu {
   position: absolute;
-  top: 9rem; /* Ajuste conforme necessário */
+  top: 9rem;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   width: 10rem;
   height: 10rem;
-  z-index: 999; /* Certifique-se de que o mini-menu esteja sobreposto a outros elementos */
+  z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,5 +134,115 @@
 }
 
 .mini-menu p:hover {
-  color: blue; /* Adicione o estilo desejado para o hover */
+  color: blue;
+}
+
+@media (max-width: 850px) {
+  html {
+    font-size: 55%;
+  }
+
+  #header {
+    padding: 1rem 5%;
+    height: 8rem;
+  }
+
+  #header .logo img {
+    width: 4rem;
+  }
+
+  #header .icons {
+    display: block;
+  }
+
+  #header .navBar {
+    position: absolute;
+    background: var(--black);
+    width: 17rem;
+    top: 100%;
+    right: 0;
+    border-radius: 0.5rem;
+    flex-direction: column;
+    height: auto;
+  }
+
+  #header .navBar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30h;
+  }
+
+  #header .navBar ul a {
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    display: block;
+    padding: 1rem;
+    color: var(--white);
+  }
+
+  .profile-box-items {
+    margin-left: 1rem;
+  }
+
+  .profile-img {
+    width: 3rem;
+  }
+
+  .sobre-nos {
+    width: 80%;
+    display: flex;
+    gap: 5rem;
+    justify-content: space-between;
+    background: var(--white);
+    margin: 0 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .sobre-nos div {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sobre-nos div h2 {
+    color: #13131a;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .sobre-nos div p {
+    color: #13131a;
+    font-size: 1.2rem;
+  }
+
+  .sobre-nos .assunto-pertinente {
+    width: 60%;
+  }
+}
+
+@media (max-width: 530px) {
+  .wrapper .fa-icon {
+    display: none;
+  }
+
+  .wrapper .carousel {
+    width: 30rem;
+  }
+
+  .projects-box {
+    margin: 0;
+  }
+
+  .projects-box .projects-img img {
+    width: 5rem;
+  }
+
+  .projects-box .projects-img {
+    display: flex;
+  }
 }

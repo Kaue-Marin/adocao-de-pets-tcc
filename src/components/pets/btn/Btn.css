@@ -1,18 +1,19 @@
+.btnServices,
 .btnForm {
-    display: block;
-    padding: 0.7rem 3rem;
-    font-size: 1.7rem;
-    background-color: var(--white);
-    color: #1d1d2f;
-    border-radius: 2rem;
-    cursor: pointer;
-  }
+  padding: 0.7rem 3rem;
+  font-size: 1.7rem;
+  background-color: #1e7fa2;
+  color: #fff;
+  border-radius: 2rem;
+  cursor: pointer;
+}
 
-  .btnForm:hover  {
-    background-color:#f5f5f5
-  }
-   
-  .boxBtn {
-    display: flex;
-    gap: 2rem;
+.btnServices:hover,
+.btnForm:hover {
+  background-color: #1d7899;
+}
+
+.boxBtn {
+  display: flex;
+  gap: 2rem;
 }

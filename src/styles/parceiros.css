@@ -58,7 +58,7 @@
 
 .about-title {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 20px;
   animation: fadeInTitle 1s forwards ease;
 }
@@ -73,7 +73,7 @@
 
 .about-text {
   font-size: 1.6rem;
-  color: #444;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
   animation: fadeInText 1s forwards ease;
@@ -84,7 +84,7 @@
 
 .about-text-2 {
   font-size: 1.6rem;
-  color: #444;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
   animation: fadeInText 1s forwards ease;
@@ -122,7 +122,7 @@
 
 .partner-list-section h2 {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 20px;
 }
 
@@ -151,30 +151,27 @@
 }
 
 .partner-card {
-    width: 300px; /* Ajuste o valor conforme necessário */
-    height: auto;
-  }
-  
-  .partner-card img {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  @media (max-width: 420px) {
+  width: 300px; /* Ajuste o valor conforme necessário */
+  height: auto;
+}
 
-    .pet-card {
-      width: 300px;
-      height: 240px;
-      background-color: transparent !important;
-      border: none !important;
-    }
-  
-    
-    .pet-card img {
-      width: 25rem;
-      height: 70%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-  
+.partner-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 420px) {
+  .pet-card {
+    width: 300px;
+    height: 240px;
+    background-color: transparent !important;
+    border: none !important;
   }
+
+  .pet-card img {
+    width: 25rem;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}

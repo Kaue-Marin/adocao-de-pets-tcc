@@ -127,40 +127,38 @@ export const Cadastro = () => {
             />
           </div>
 
-          <p>Sexo:</p>
+          <p style={{ marginTop: "2rem", fontSize: "1.3rem" }}>Sexo:</p>
+          <div className="radios">
+            <input
+              type="radio"
+              id="feminino"
+              name="genero"
+              value="feminino"
+              onChange={(e) => setGenero(e.target.value)}
+              required
+            />
+            <label htmlFor="feminino">Feminino</label>
 
-          <input
-            type="radio"
-            id="feminino"
-            name="genero"
-            value="feminino"
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          />
-          <label htmlFor="feminino">Feminino</label>
-          <br />
-          <input
-            type="radio"
-            id="masculino"
-            name="genero"
-            value="masculino"
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          />
-          <label htmlFor="masculino">Masculino</label>
-          <br />
-          <input
-            type="radio"
-            id="outro"
-            name="genero"
-            value="outro"
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          />
-          <label htmlFor="outro">Outro</label>
+            <input
+              type="radio"
+              id="masculino"
+              name="genero"
+              value="masculino"
+              onChange={(e) => setGenero(e.target.value)}
+              required
+            />
+            <label htmlFor="masculino">Masculino</label>
 
-          <br />
-          <br />
+            <input
+              type="radio"
+              id="outro"
+              name="genero"
+              value="outro"
+              onChange={(e) => setGenero(e.target.value)}
+              required
+            />
+            <label htmlFor="outro">Outro</label>
+          </div>
 
           <label htmlFor="data_nascimento">
             <b>Data de Nascimento:</b>
@@ -227,7 +225,7 @@ export const Cadastro = () => {
               required
             />
           </div>
-
+          <br />
           <button type="submit" className="btnLogin">
             Salvar
           </button>
@@ -240,30 +238,11 @@ export const Cadastro = () => {
               width: "100%",
               alignItems: "center",
             }}
-          >
-            <GoogleOAuthProvider clientId="919109909084-qk7ticblv5l7t0ootnr5sojbbf2ditha.apps.googleusercontent.com">
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  const decoded = jwtDecode(credentialResponse.credential);
-                  handleSubmitLoginGoogle(decoded);
-                }}
-                onError={() => {
-                  console.log("Login do Google falhou");
-                }}
-              />
-            </GoogleOAuthProvider>
-          </div>
+          ></div>
 
           <div className="form-group login-links">
-            <p>
+            <p style={{ textAlign: "center" }}>
               Já tem conta? <Link to={"/login"}>Faça login</Link>
-            </p>
-            <p>
-              Esqueceu sua senha? <Link to={"/senha"}>Recupere aqui</Link>
-            </p>
-            <p>
-              Não confirmou sua conta?{" "}
-              <Link to={"/confirmacao"}>Clique aqui</Link>
             </p>
           </div>
         </form>

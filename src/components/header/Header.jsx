@@ -16,6 +16,21 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 850) {
+        setMenuOpen(false); // Fechar o menu em telas grandes
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     const storedGoogleData = localStorage.getItem("googleData");
     const storedCadastroData = localStorage.getItem("cadastroData");
     const storedData = storedGoogleData || storedCadastroData;
@@ -28,14 +43,12 @@ const Header = () => {
         if (decodedData.fotoPerfil) {
           setImageProfile(decodedData.fotoPerfil);
         } else {
-          // Usar uma imagem padrão se não houver foto de perfil
           setImageProfile(registro);
         }
       } catch (error) {
         console.error("Erro ao processar dados do localStorage:", error);
       }
     } else {
-      // Usar uma imagem padrão se não houver dados no localStorage
       setImageProfile(registro);
     }
   }, []);
@@ -138,21 +151,12 @@ const Header = () => {
         )}
 
         <div className="icons">
-          {!menuOpen ? (
-            <FontAwesomeIcon
-              icon={faTimes}
-              id="menuBar"
-              className="icon"
-              onClick={toggleMenu}
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faBars}
-              id="menuClosed"
-              className="icon"
-              onClick={toggleMenu}
-            />
-          )}
+          <FontAwesomeIcon
+            icon={menuOpen ? faBars : faTimes}
+            id="menuToggle"
+            className="icon"
+            onClick={toggleMenu}
+          />
         </div>
       </header>
     </>

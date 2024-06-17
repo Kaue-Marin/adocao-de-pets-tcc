@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/doe.css";
+import cidadesSp from "../assets/json/cidades"; // Assumindo que o JSON está nessa localização
 
 export const Doe = () => {
+  const [idDono, setIdDono] = useState(1); // Defina um idDono fictício para teste
   const [tutor, setTutor] = useState("");
   const [celular, setCelular] = useState("");
   const [email, setEmail] = useState("");
@@ -12,15 +14,34 @@ export const Doe = () => {
   const [especie, setEspecie] = useState("Cachorro");
   const [sexo, setSexo] = useState("Macho");
   const [porte, setPorte] = useState("Pequeno");
-  const [cidade, setCidade] = useState("");
-  const [estado, setEstado] = useState("");
+  const [cidade, setCidade] = useState(cidadesSp[0]); // Cidade inicial
+  const [estado] = useState("São Paulo"); // Estado fixo
   const [nomeAnimal, setNomeAnimal] = useState("");
   const [imagemPet, setImagemPet] = useState(null);
+  const [fileName, setFileName] = useState("");
+
+  useEffect(() => {
+    // Obtenha o idDono do localStorage
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      setIdDono(userId);
+      console.log(userId);
+    }
+  }, []);
+
+  // Log cidade inicial
+  useEffect(() => {
+    console.log("Cidade inicial:", cidade);
+  }, [cidade]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Log cidade no momento do envio
+    console.log("Cidade selecionada ao enviar:", cidade);
+
     const formData = new FormData();
+    formData.append("idDono", idDono); // Inclua o idDono no FormData
     formData.append("tutor", tutor);
     formData.append("celular", celular);
     formData.append("email", email);
@@ -58,17 +79,18 @@ export const Doe = () => {
       setEspecie("Cachorro");
       setSexo("Macho");
       setPorte("Pequeno");
-      setCidade("");
-      setEstado("");
+      setCidade(cidadesSp[0]); // Reset para a cidade inicial
       setNomeAnimal("");
       setImagemPet(null);
+      setFileName("");
     } catch (error) {
       console.error("Erro ao enviar os dados para o backend:", error);
     }
   };
 
-  const handleConfirm = () => {
-    setConfirm(true);
+  const handleFileChange = (e) => {
+    setImagemPet(e.target.files[0]);
+    setFileName(e.target.files[0] ? e.target.files[0].name : "");
   };
 
   return (
@@ -187,33 +209,34 @@ export const Doe = () => {
 
           <div className="form-group">
             <label htmlFor="cidade">Cidade:</label>
-            <input
-              type="text"
+            <select
               id="cidade"
               value={cidade}
               onChange={(e) => setCidade(e.target.value)}
               required
-            />
+            >
+              {cidadesSp.map((cidade) => (
+                <option key={cidade} value={cidade}>
+                  {cidade}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="form-group">
             <label htmlFor="estado">Estado:</label>
-            <input
-              type="text"
-              id="estado"
-              value={estado}
-              onChange={(e) => setEstado(e.target.value)}
-              required
-            />
+            <input type="text" id="estado" value={estado} readOnly required />
           </div>
 
           <div className="form-group">
             <label htmlFor="imagemPet">Imagem do Pet:</label>
-            <input
-              type="file"
-              id="imagemPet"
-              onChange={(e) => setImagemPet(e.target.files[0])}
-            />
+            <label className="custom-file-upload-doe">
+              <input type="file" id="imagemPet" onChange={handleFileChange} />
+              Escolher arquivo
+            </label>
+            <span id="file-name" className={fileName ? "visible" : ""}>
+              {fileName || "Nenhum arquivo selecionado"}
+            </span>
           </div>
 
           <button type="submit">Cadastrar Pet</button>

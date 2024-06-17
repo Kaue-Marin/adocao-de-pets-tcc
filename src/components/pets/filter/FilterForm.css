@@ -1,40 +1,40 @@
 .filterForm {
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 0.5rem;
-    margin-top: 4rem;
-    padding: 2rem;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .boxForm {
-    padding: 1.5rem;
-    border-radius: 10px;
-    display: flex;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-  
-  .boxForm select,
-  .boxForm input[type="text"] {
-    width: 25rem;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    margin-right: 1rem;
-    border-radius: 0.5rem;
-  }
-  
-  .boxForm select {
-    display: block;
-  }
-  
-  .boxForm input[type="text"] {
-    display: block;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  align-items: center;
+  width: 90%;
+  justify-content: center;
+  margin: 3rem auto;
+}
+
+.boxForm {
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.boxForm select,
+.boxForm input[type="text"] {
+  width: 25rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+}
+
+.boxForm select {
+  display: block;
+}
+
+.boxForm input[type="text"] {
+  display: block;
+}

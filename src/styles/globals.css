@@ -3,7 +3,7 @@
 :root {
   --hover-backgorund-color: #d3ad7f;
   --black: #13131a;
-  --background: #fffc00;
+  --background: #1c7385;
   --hover-yellow: #ece900;
   --white: #fff;
   --border: 0.1rem solid rgba(255, 255, 255, 0.3);
@@ -18,7 +18,6 @@
   border: none;
   text-transform: capitalize;
   text-decoration: none;
-  transition: all 0.5s ease-in-out;
   outline: none;
 }
 
@@ -30,7 +29,7 @@ html {
 }
 
 body {
-  background: #ece900;
+  background: #259bb3;
 }
 
 .container {
@@ -72,14 +71,14 @@ body {
 .adoteSection .titlesSection .titleAdote {
   font-size: 2.5rem;
   text-align: center;
-  color: rgb(97 51 135 / 1);
+  color: #eee;
   margin-bottom: 2rem;
 }
 
 .adoteSection .titlesSection .subtitleAdote {
   font-size: 1.6rem;
   text-align: center;
-  color: #666;
+  color: #ccc;
 }
 
 .profilePet {

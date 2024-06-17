@@ -1,8 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./services.css";
 
 export const Services = () => {
+  const navigate = useNavigate();
+  const authenticated = localStorage.getItem("isLoggedIn");
+  console.log(authenticated);
+  const handleDonateClick = () => {
+    if (authenticated !== "true") {
+      navigate("/cadastro");
+    } else {
+      navigate("/doe");
+    }
+  };
+
   return (
     <section id="services" className="services">
       <div className="services-box">
@@ -12,32 +23,29 @@ export const Services = () => {
             Encontre seu companheiro perfeito e ajude a mudar uma vida. Clique
             para adotar agora!
           </p>
-
           <Link to={"/adote"}>
-            <button className="btn">adote</button>
+            <button className="btnServices">adote</button>
           </Link>
         </div>
         <div className="service-item">
-          <h2 className="name-function">doando</h2>
+          <h2 className="name-function">Doando</h2>
           <p className="description-function">
             Dê amor e um lar para um pet necessitado. Clique para começar a
             jornada de adoção e faça a diferença hoje!
           </p>
-
-          <Link to={"/doe"}>
-            <button className="btn">doe</button>
-          </Link>
+          <button className="btnServices" onClick={handleDonateClick}>
+            doe
+          </button>
         </div>
         <div className="service-item">
-          <h2 className="name-function">apadrinhe</h2>
+          <h2 className="name-function">Apadrinhe</h2>
           <p className="description-function">
             Faça a diferença na vida de um animal necessitado. Clique para
             apadrinhar e oferecer suporte contínuo aos pets em busca de um lar
             amoroso.
           </p>
-
-          <Link to={"/apadrinhe"}>
-            <button className="btn">apadrinhe</button>
+          <Link to={"/ajude"}>
+            <button className="btnServices">apadrinhe</button>
           </Link>
         </div>
       </div>
@@ -54,7 +62,6 @@ export const Services = () => {
             os animais, um lar de cada vez.
           </p>
         </div>
-
         <div className="assunto-pertinente">
           <h2>Sobre Nós</h2>
           <p>
@@ -67,7 +74,6 @@ export const Services = () => {
             de tantos outros quanto possível.
           </p>
         </div>
-
         <div className="assunto-pertinente">
           <h2>Assuntos Pertinentes</h2>
           <p>

@@ -109,9 +109,13 @@ export const Profile = () => {
                   Alterar senha
                 </Link>
               </div>
-              <label htmlFor="fotoPet" className="custom-file-upload">
-                Alterar foto
-              </label>
+              <div className="separatorLine"></div>
+              <div className="DatasProfileBox">
+                <Link to={"/meuspets"} className="linkData">
+                  seus pets
+                </Link>
+              </div>
+
               <input
                 type="file"
                 id="fotoPet"

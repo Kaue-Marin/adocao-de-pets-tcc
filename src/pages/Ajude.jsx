@@ -60,7 +60,7 @@ export const Ajude = () => {
           animais. Todas as doações são bem-vindas e contribuirão diretamente
           para cuidar de animais desabrigados e promover a adoção responsável.
         </p>
-        <h3>Formas de Doar:</h3>
+        <p>Formas de Doar:</p>
         <div className="donation-methods">
           <h4>Transferência bancária:</h4>
           <p>
@@ -86,42 +86,6 @@ export const Ajude = () => {
           </p>
         </div>
       </div>
-      <div className="card-container">
-        <div className="card">
-          <p>
-            Promovemos a adoção responsável de animais de estimação,
-            conectando-os com lares amorosos e responsáveis.
-          </p>
-        </div>
-        <div className="card">
-          <p>
-            Contribuímos para o bem-estar animal através de uma plataforma
-            intuitiva e abrangente.
-          </p>
-        </div>
-        <div className="card">
-          <p>
-            Trabalhamos em estreita colaboração com abrigos e resgates locais
-            para fornecer uma plataforma cativante para pets.
-          </p>
-        </div>
-        <div className="card">
-          <p>
-            Ajudamos a reduzir o número de animais abandonados, encontrando
-            lares permanentes para eles.
-          </p>
-        </div>
-        <div className="card">
-          <p>
-            Nossa equipe se dedica a tornar a jornada de adoção uma experiência
-            gratificante e memorável.
-          </p>
-        </div>
-      </div>
-      <Link to="/donations" className="donate-btn">
-        Doar Agora
-      </Link>{" "}
-      {/* Adicionando um botão para a página de doações */}
     </div>
   );
 };

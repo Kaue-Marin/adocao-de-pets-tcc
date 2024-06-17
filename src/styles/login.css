@@ -4,8 +4,8 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  height: 100vh;
   margin-right: 30rem;
+  margin-top: 10rem;
 }
 
 .bg {
@@ -42,8 +42,6 @@
   margin-bottom: 20px;
 }
 
-
-
 .form-group {
   margin-bottom: 20px;
 }
@@ -60,8 +58,7 @@ input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   text-transform: none;
-  margin-top: .5rem;
-
+  margin-top: 0.5rem;
 }
 
 .btnLogin {
@@ -80,20 +77,20 @@ input[type="password"] {
 
 .logo {
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo img{
+.logo img {
   width: 5rem;
 }
-
 
 .newPassword {
   margin-right: 1rem;
 }
 
-.newPassword, .newAccount {
+.newPassword,
+.newAccount {
   font-size: 1.4rem;
 }
 
@@ -112,8 +109,8 @@ input[type="password"] {
 .google {
   width: 100%;
   display: flex;
-  flex-direction:column;
-  justify-content:center;
+  flex-direction: column;
+  justify-content: center;
   gap: 2rem;
 }
 

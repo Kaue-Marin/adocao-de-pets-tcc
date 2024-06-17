@@ -91,7 +91,7 @@
   line-height: 1.6;
   margin-bottom: 20px;
   animation: fadeInText 1s forwards ease;
-  width: 90%;
+  width: 30rem;
   margin-top: 0.5rem;
 }
 
@@ -103,19 +103,6 @@
   margin-top: 2rem;
 }
 
-.card {
-  width: calc(33.33% - 1rem);
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card p {
-  margin: 0;
-}
-
 /* Estilos para a seção de doações */
 .donations-section {
   margin-top: 4rem;
@@ -124,13 +111,13 @@
 
 .donations-section h2 {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 20px;
 }
 
 .donations-section p {
   font-size: 1.6rem;
-  color: #444;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -141,13 +128,13 @@
 
 .donation-methods h4 {
   font-size: 1.8rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .donation-methods p {
   font-size: 1.6rem;
-  color: #444;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -159,7 +146,7 @@
 
 .donation-methods li {
   font-size: 1.6rem;
-  color: #444;
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -181,7 +168,6 @@
 }
 
 @media (max-width: 420px) {
-
   .pet-card {
     width: 300px;
     height: 240px;
@@ -189,12 +175,10 @@
     border: none !important;
   }
 
-  
   .pet-card img {
     width: 25rem;
     height: 70%;
     object-fit: cover;
     border-radius: 10px;
   }
-
 }

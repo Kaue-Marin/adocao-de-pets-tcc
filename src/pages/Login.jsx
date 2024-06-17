@@ -94,26 +94,10 @@ export const Login = () => {
           ) : (
             <div className="form-group google">
               <div className="newRegisterAndPassword">
-                <Link to={"/login"} className="newPassword">
-                  Esqueceu a senha?
-                </Link>
-                <Link to={"/registrar"} className="newAccount">
+                <Link to={"/cadastro"} className="newAccount">
                   Registrar
                 </Link>
               </div>
-              <GoogleOAuthProvider clientId="14862496524-9qqvbugd7bh2hg87dv9j8o00ed381vqv.apps.googleusercontent.com">
-                <GoogleLogin
-                  onSuccess={(credentialResponse) => {
-                    const decoded = jwtDecode(credentialResponse.credential);
-                    console.log(decoded);
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
-                />
-                ;
-              </GoogleOAuthProvider>
-              ;
             </div>
           )}
 

@@ -69,7 +69,13 @@ export const NewPassword = () => {
                 Alterar senha
               </Link>
             </div>
-          </div>
+            <div className="separatorLine"></div> {/* Linha separadora */}
+            <div className="DatasProfileBox">
+              <Link to={"/seuspets"} className="linkData">
+                seus pets
+              </Link>
+            </div>
+          </div>{" "}
         </div>
         <form className="profileDetails" onSubmit={handleSubmit}>
           <div className="passwordFields">

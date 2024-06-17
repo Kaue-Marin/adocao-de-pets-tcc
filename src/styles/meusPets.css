@@ -1,0 +1,90 @@
+.containerMeusPets {
+  margin-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.containerMeusPets > h2 {
+  font-size: 3rem;
+  color: #613387; /* Uma cor mais vibrante */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para o texto */
+  margin-bottom: 20px; /* Espaçamento inferior */
+  font-family: "Arial", sans-serif; /* Fonte */
+  font-weight: bold; /* Negrito */
+  background: linear-gradient(
+    to right,
+    #292929,
+    #434242
+  ); /* Gradiente de cor */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.meusPets {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100vw;
+  margin-top: 6rem;
+  justify-content: center; /* Adicionando centralização horizontal */
+}
+
+.meusPetsBox {
+  padding: 1rem;
+  width: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  overflow-y: hidden;
+  margin: 2rem;
+}
+
+.meusPetsBox:hover {
+  transform: translateY(-5px);
+}
+
+.meusPetsBox img {
+  width: 20rem;
+  height: 18rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.btnExcluirPet {
+  background-color: #ff3333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btnExcluirPet:hover {
+  background-color: #cc0000;
+}
+
+.btnExcluirPet:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btnAtualizarPet {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btnAtualizarPet:hover {
+  background-color: #45a049;
+}

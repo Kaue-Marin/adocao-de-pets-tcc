@@ -7,7 +7,7 @@
   left: 0;
   top: 0;
   z-index: -1;
-  margin-top: 10rem;
+  margin-top: 30rem;
 }
 
 .logo-register-box {
@@ -27,11 +27,10 @@
   object-fit: cover;
 }
 
-.form-container-cadastro{
+.form-container-cadastro {
   display: flex;
   justify-content: end;
   align-items: center;
-  height: 100vh;
   margin-right: 30rem;
 }
 
@@ -43,7 +42,6 @@
   background: #fff;
   margin: 2rem 0;
 }
-
 
 .logo {
   text-align: center;
@@ -84,6 +82,12 @@ select {
   margin-left: 0.5rem;
 }
 
+.radios {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
 .btnLogin {
   width: 100%;
   padding: 10px;
@@ -111,25 +115,20 @@ select {
   color: #0056b3;
 }
 
-.nasciment input{
+.nasciment input {
   padding: 1rem;
   margin-left: 2rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
-
-
-
-
-@media (max-width: 995px){
+@media (max-width: 995px) {
   .form-container-cadastro {
     justify-content: center;
     margin-right: 0;
   }
-
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .bg {
     display: none;
   }

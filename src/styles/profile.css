@@ -13,7 +13,8 @@
   border-radius: 5px;
   overflow: hidden; /* Oculta as bordas sobrepostas */
   width: 80%; /* Definindo a largura máxima do formulário */
-  margin: 0 auto; /* Centralizando o formulário na página */
+  align-items: center;
+  justify-content: center;
 }
 
 .profileImage {
@@ -45,13 +46,13 @@
 
 .profileLinks .DatasProfileBox .linkData {
   font-weight: bold;
-  color: #333;
+  color: #ddd;
   text-decoration: none;
   font-size: 1.2rem;
 }
 
 .profileLinks .DatasProfileBox .linkData:hover {
-  color: #000;
+  color: #ccc;
 }
 
 .separatorLine {
@@ -76,7 +77,7 @@
   border: none;
   border-bottom: 1px solid #333; /* Alterando a cor da borda inferior */
   background-color: transparent; /* Fundo transparente */
-  color: #333; /* Cor do texto */
+  color: #ddd;
 }
 
 .profileDetails input:focus {

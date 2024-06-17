@@ -20,6 +20,8 @@ import GerarPets from "./utils/GerarPet.js"; // Importe a função que gera os p
 import { Profile } from "./pages/Profile.jsx";
 import { NewPassword } from "./pages/NewPassword.jsx";
 import { Footer } from "./components/footer/Footer.jsx";
+import MeusPets from "./pages/MeusPets.jsx";
+import EditarPet from "./pages/EditarPet.jsx";
 
 const pets = GerarPets();
 
@@ -43,6 +45,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/newPassword" element={<NewPassword />} />
+        <Route path="meuspets" element={<MeusPets />} />
+        <Route path="/editarPet/:id" element={<EditarPet />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
