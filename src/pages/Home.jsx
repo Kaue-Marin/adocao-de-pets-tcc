@@ -5,7 +5,6 @@ import { Projects } from "../components/home/projects/Projects";
 export const Home = () => {
   return (
     <>
-      <p>teste</p>
       <Services />
       <Projects />
     </>

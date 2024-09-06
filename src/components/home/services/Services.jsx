@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./services.css";
+import ServicesItem from "./servicesComponents/ServicesItem";
 
 export const Services = () => {
   const navigate = useNavigate();
@@ -17,37 +18,28 @@ export const Services = () => {
   return (
     <section id="services" className="services">
       <div className="services-box">
-        <div className="service-item">
-          <h2 className="name-function">Adotando</h2>
-          <p className="description-function">
-            Encontre seu companheiro perfeito e ajude a mudar uma vida. Clique
-            para adotar agora!
-          </p>
-          <Link to={"/adote"}>
-            <button className="btnServices">adote</button>
-          </Link>
-        </div>
-        <div className="service-item">
-          <h2 className="name-function">Doando</h2>
-          <p className="description-function">
-            Dê amor e um lar para um pet necessitado. Clique para começar a
-            jornada de adoção e faça a diferença hoje!
-          </p>
-          <button className="btnServices" onClick={handleDonateClick}>
-            doe
-          </button>
-        </div>
-        <div className="service-item">
-          <h2 className="name-function">Apadrinhe</h2>
-          <p className="description-function">
-            Faça a diferença na vida de um animal necessitado. Clique para
+        <ServicesItem
+          title="Adotando"
+          description="Encontre seu companheiro perfeito e ajude a mudar uma vida. Clique para
+        adotar agora!"
+          service="adote"
+          link="adote"
+        />
+        <ServicesItem
+          title="doando"
+          description="Dê amor e um lar para um pet necessitado. Clique para começar a
+            jornada de adoção e faça a diferença hoje!"
+          service="doe"
+          link="doe"
+        />
+        <ServicesItem
+          title="apadrinhe"
+          description="Faça a diferença na vida de um animal necessitado. Clique para
             apadrinhar e oferecer suporte contínuo aos pets em busca de um lar
-            amoroso.
-          </p>
-          <Link to={"/ajude"}>
-            <button className="btnServices">apadrinhe</button>
-          </Link>
-        </div>
+            amoroso."
+          service="apadrinhe"
+          link="ajude"
+        />
       </div>
       <div className="sobre-nos">
         <div className="assunto-pertinente">
