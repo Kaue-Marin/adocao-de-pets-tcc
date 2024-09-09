@@ -1,0 +1,27 @@
+.Partnerships {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10rem;
+}
+
+.partnerships > .container {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+}
+
+.title-section {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--black);
+  margin-bottom: 3rem;
+}
+
+.slide-item {
+  width: 100vw;
+  height: 300px;
+  object-fit: cover;
+}

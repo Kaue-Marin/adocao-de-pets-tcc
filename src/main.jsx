@@ -2,7 +2,6 @@ import React from "react";
 import cidadesSp from "./assets/json/cidades.js";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
 import { Ajude } from "./pages/Ajude.jsx";
 import { Apadrinhe } from "./pages/Apadrinhe.jsx";
@@ -22,6 +21,14 @@ import { NewPassword } from "./pages/NewPassword.jsx";
 import { Footer } from "./components/footer/Footer.jsx";
 import MeusPets from "./pages/MeusPets.jsx";
 import EditarPet from "./pages/EditarPet.jsx";
+import { Home } from "./pages/home/Home.jsx";
+import { register } from "swiper/element/bundle";
+
+register();
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const pets = GerarPets();
 
