@@ -7,7 +7,7 @@ const app = express();
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "samanta22",
+  password: "Samanta.22",
   database: "cadastro_db",
   connectTimeout: 60000,
   acquireTimeout: 60000,

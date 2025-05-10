@@ -1,5 +1,4 @@
 // About.js
-import React from "react";
 import { FaBone } from "react-icons/fa"; // Importando o ícone de osso
 import "../styles/about.css";
 import bannerImg from "../assets/about/banner-01.jpg";

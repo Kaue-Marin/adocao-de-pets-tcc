@@ -4,9 +4,8 @@ import "./PetsBox.css";
 import "../filter/FilterForm.css";
 import cidadesSp from "../../../assets/json/cidades";
 import { Link } from "react-router-dom";
-import { Btn } from "../btn/Btn";
 
-export const PetsBox = ({ filters }) => {
+export const PetsBox = () => {
   const [numPetsVisiveis, setNumPetsVisiveis] = useState(6); // Inicialmente, mostraremos apenas 6 pets
   const [pets, setPets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

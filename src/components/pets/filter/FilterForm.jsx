@@ -17,8 +17,7 @@ export const FilterForm = ({
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Lógica para filtrar os pets com base nos filtros selecionados
-    // Defina a lógica de filtragem aqui
+
   };
 
   return (
