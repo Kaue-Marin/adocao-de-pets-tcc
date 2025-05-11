@@ -1,0 +1,10 @@
+/* about.css */
+.aboutContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10rem;
+  animation: fadeIn 1s ease-in;
+}
+

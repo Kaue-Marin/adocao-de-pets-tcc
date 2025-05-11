@@ -1,0 +1,64 @@
+
+
+.oquefazemos {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.aboutTitle {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  animation: fadeInTitle 1s forwards ease;
+}
+.aboutBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem; /* Adicionando margem inferior */
+  flex-wrap: wrap;
+  width: 100rem !important;
+}
+
+.petCard {
+  width: 350px;
+  height: 280px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out; /* Adicionando transição */
+}
+
+.pet-card:hover {
+  transform: scale(1.05); /* Efeito de escala no hover */
+}
+
+.petCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.aboutText {
+  font-size: 1.6rem; /* Aumentando o tamanho da fonte */
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  animation: fadeInText 1s forwards ease;
+  width: 40rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.aboutText2 {
+  font-size: 1.6rem; /* Aumentando o tamanho da fonte */
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  animation: fadeInText 1s forwards ease;
+  width: 90%;
+  margin-top: 0.5rem;
+}

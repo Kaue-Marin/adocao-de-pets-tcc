@@ -1,8 +1,7 @@
 import React from "react";
-import cidadesSp from "./assets/json/cidades.js";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { About } from "./pages/About.jsx";
+import { About } from "./pages/about/About.jsx";
 import { Ajude } from "./pages/Ajude.jsx";
 import { Apadrinhe } from "./pages/Apadrinhe.jsx";
 import { Contato } from "./pages/Contato.jsx";
@@ -12,13 +11,12 @@ import { Login } from "./pages/Login.jsx";
 import { Parceiros } from "./pages/Parceiros.jsx";
 import Header from "./components/header/Header.jsx";
 import "./styles/globals.css";
-import { Adote } from "./pages/Adote.jsx";
+import { Adote } from "./pages/adote/Adote.jsx";
 import "./styles/medias.css";
-import { ProfilePet } from "./components/pets/profilePet/ProfilePet.jsx";
+import { ProfilePet } from "./pages/adote/pets/profilePet/ProfilePet.jsx";
 import GerarPets from "./utils/GerarPet.js"; // Importe a função que gera os pets
 import { Profile } from "./pages/Profile.jsx";
-import { NewPassword } from "./pages/NewPassword.jsx";
-import { Footer } from "./components/footer/Footer.jsx";
+import { NewPassword } from "./pages/NewPassword.jsx"; 
 import MeusPets from "./pages/MeusPets.jsx";
 import EditarPet from "./pages/EditarPet.jsx";
 import { Home } from "./pages/home/Home.jsx";

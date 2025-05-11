@@ -1,0 +1,43 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 10rem;
+}
+
+.bannerImg {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in;
+}
+
+.banner:hover .bannerImg {
+  transform: scale(1.05);
+}
+
+.bannerContent {
+  position: absolute;
+  bottom: 10rem;
+  left: 8rem;
+  color: #fff;
+}
+
+.bannerText {
+  color: #fff;
+}
+
+.bannerTitle {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.bannerBrand {
+  font-size: 1.1rem;
+}
+
+.boneIcon {
+  font-size: 3rem;
+  margin-top: 10px;
+  color: #fff;
+}

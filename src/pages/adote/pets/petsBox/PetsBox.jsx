@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PetsBox.css";
 import "../filter/FilterForm.css";
-import cidadesSp from "../../../assets/json/cidades";
+import cidadesSp from "../../../../assets/json/cidades";
 import { Link } from "react-router-dom";
+import { Btn } from "../btn/Btn";
 
 export const PetsBox = () => {
   const [numPetsVisiveis, setNumPetsVisiveis] = useState(6); // Inicialmente, mostraremos apenas 6 pets
@@ -188,14 +189,8 @@ export const PetsBox = () => {
             marginTop: "3rem",
           }}
         >
-          <button onClick={mostrarMaisPets} className="btnForm">
-            Ver Mais
-          </button>
-          {numPetsVisiveis > 6 && ( // Renderiza o botão "Ver Menos" apenas se houver mais de 6 pets visíveis
-            <button onClick={mostrarMenosPets} className="btnForm">
-              Ver Menos
-            </button>
-          )}
+          
+          <Btn/>
         </div>
       </div>
     </>
