@@ -56,16 +56,15 @@
   }
 
   .sobre-nos {
-    width: 80%;
-    display: flex;
-    gap: 5rem;
-    justify-content: space-between;
-    background: var(--white);
-    margin: 0 auto;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-
+    width: 80% !important;
+    display: flex !important;
+    gap: 5rem !important;
+    justify-content: space-between !important;
+    background: var(--white) !important;
+    margin: 0 auto !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
   }
 
   .sobre-nos div {

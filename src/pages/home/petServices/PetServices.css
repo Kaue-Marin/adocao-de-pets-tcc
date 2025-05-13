@@ -11,7 +11,6 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .services-box .service-item {
   background: var(--white);
   height: 24rem;
@@ -74,13 +73,35 @@
   color: #13131a;
   margin-bottom: 3rem;
   text-align: center;
+  font-size: 2rem;
 }
 
 .sobre-nos div p {
   color: #13131a;
   text-align: center;
+  font-size: 1.3rem;
 }
 
 .sobre-nos .assunto-pertinente {
   width: 20rem;
+}
+
+
+.btnServices {
+  padding: 0.7rem 3rem;
+  font-size: 1.7rem;
+  background-color: #1e7fa2;
+  color: #fff;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.btnServices:hover {
+  background-color: #1d7899;
+}
+
+.btnServices {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
 }

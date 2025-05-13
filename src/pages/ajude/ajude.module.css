@@ -1,7 +1,4 @@
-/* ajude.css */
-
-/* Estilos para o container principal */
-.ajude-container {
+.ajudeContainer {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -10,47 +7,59 @@
   animation: fadeIn 1s ease-in;
 }
 
-/* Estilos para o banner */
 .banner {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
 }
 
-.banner-img {
+.bannerImg {
   width: 100%;
   height: auto;
   transition: transform 0.5s ease-in;
 }
 
-.banner:hover .banner-img {
+.banner:hover .bannerImg {
   transform: scale(1.05);
 }
 
-.banner-text {
+.bannerText {
   position: absolute;
   bottom: 10rem;
   left: 8rem;
   color: #fff;
 }
 
-.banner-title {
+.bannerTitle {
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 5px;
 }
 
-.banner-brand {
+.bannerBrand {
   font-size: 1.1rem;
 }
 
-.bone-icon {
+.boneIcon {
   font-size: 3rem;
   margin-top: 10px;
   color: #fff;
 }
 
-/* Estilos para a seção "O que fazemos" */
+.petCard {
+  width: 300px;
+  height: 240px;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.petCard img {
+  width: 28rem;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .oquefazemos {
   display: flex;
   width: 100%;
@@ -59,14 +68,14 @@
   flex-direction: column;
 }
 
-.about-title {
+.aboutTitle {
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 20px;
   animation: fadeInTitle 1s forwards ease;
 }
 
-.about-box {
+.aboutBox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,20 +83,23 @@
   margin-bottom: 4rem;
 }
 
-.about-text {
+.aboutText {
   font-size: 1.6rem;
-  color: #444;
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 20px;
   animation: fadeInText 1s forwards ease;
   width: 40rem;
   text-align: center;
   margin-top: 3rem;
+  display: flex;
+  align-content: center;
+  flex-direction: column ;
 }
 
-.about-text-2 {
+.aboutText2 {
   font-size: 1.6rem;
-  color: #444;
+  color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
   animation: fadeInText 1s forwards ease;
@@ -95,62 +107,55 @@
   margin-top: 0.5rem;
 }
 
-/* Estilos para os cards */
-.card-container {
+.cardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
 }
 
-/* Estilos para a seção de doações */
-.donations-section {
+.donationsSection {
   margin-top: 4rem;
   padding-bottom: 4rem;
 }
 
-.donations-section h2 {
+.donationsSection h2 {
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 20px;
 }
 
-.donations-section p {
+.donationsSection p {
   font-size: 1.6rem;
   color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.donation-methods {
+.donationMethods {
   margin-top: 2rem;
 }
 
-.donation-methods h4 {
+.donationMethods h4 {
   font-size: 1.8rem;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.donation-methods p {
+.donationMethods p,
+.donationMethods li {
   font-size: 1.6rem;
   color: #fff;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.donation-methods ul {
+.donationMethods ul {
   list-style: none;
   padding: 0;
 }
 
-.donation-methods li {
-  font-size: 1.6rem;
-  color: #fff;
-  line-height: 1.6;
-}
-
-.donate-btn {
+.donateBtn {
   display: inline-block;
   font-size: 1.6rem;
   color: #fff;
@@ -163,22 +168,22 @@
   text-decoration: none;
 }
 
-.donate-btn:hover {
+.donateBtn:hover {
   background-color: #0056b3;
 }
 
-@media (max-width: 420px) {
-  .pet-card {
-    width: 300px;
-    height: 240px;
-    background-color: transparent !important;
-    border: none !important;
+@media (max-width: 500px) {
+
+  .petCard img {
+    height: 70%;
   }
 
-  .pet-card img {
-    width: 25rem;
-    height: 70%;
-    object-fit: cover;
-    border-radius: 10px;
+  .aboutBox {
+  flex-direction: column;
   }
+
+  .aboutText {
+  font-size: 1.5rem;
+  width: auto;
+}
 }

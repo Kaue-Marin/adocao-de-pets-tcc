@@ -1,6 +1,6 @@
-import styles from "./Btn.module.css";
+import styles from "./btnPets.module.css";
 
-export const Btn = ({ numPetsVisiveis, setNumPetsVisiveis }) => {
+export const BtnPets = ({ numPetsVisiveis, setNumPetsVisiveis }) => {
   const mostrarMaisPets = () => {
     setNumPetsVisiveis((prevNumPets) => prevNumPets + 3);
   };

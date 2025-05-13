@@ -1,4 +1,4 @@
-/* cadastro.css */
+/* cadastro.module.css */
 
 .bg {
   position: absolute;
@@ -10,24 +10,26 @@
   margin-top: 30rem;
 }
 
-.logo-register-box {
+.logoRegisterBox {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
 }
-.logo-register-box img {
+
+.logoRegisterBox img {
   width: 6rem;
   cursor: pointer;
 }
+
 .bg img {
   height: 100%;
   position: fixed;
   object-fit: cover;
 }
 
-.form-container-cadastro {
+.formContainerCadastro {
   display: flex;
   justify-content: end;
   align-items: center;
@@ -48,7 +50,7 @@
   margin-bottom: 20px;
 }
 
-.form-group {
+.formGroup {
   margin-bottom: 20px;
 }
 
@@ -71,14 +73,14 @@ select {
   margin-top: 0.5rem;
 }
 
-.checkbox-container {
+.checkboxContainer {
   display: flex;
   align-items: center;
   margin-top: 0.5rem;
 }
 
-.checkbox-container label {
-  font-size: 1.2rem;
+.checkboxContainer label {
+  font-size: 1.4rem;
   margin-left: 0.5rem;
 }
 
@@ -86,6 +88,11 @@ select {
   display: flex;
   gap: 1rem;
   margin: 2rem 0;
+  align-items: center;
+  justify-content: center;
+}
+.radios p {
+  font-size: 1.4rem;
 }
 
 .btnLogin {
@@ -102,27 +109,28 @@ select {
   background-color: #0056b3;
 }
 
-.login-links {
+.loginLinks {
   margin-top: 1rem;
 }
 
-.login-links p {
+.loginLinks p {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-.login-links a {
+.loginLinks a {
   color: #0056b3;
 }
 
-.nasciment input {
+.nascimentoInput {
   padding: 1rem;
   margin-left: 2rem;
   border-radius: 0.5rem;
 }
 
 @media (max-width: 995px) {
-  .form-container-cadastro {
+  .formContainerCadastro {
     justify-content: center;
     margin-right: 0;
   }
@@ -135,5 +143,10 @@ select {
   .form {
     margin: 0 auto;
     width: 90% !important;
+  }
+
+  
+  .radios {
+    flex-direction: column;
   }
 }

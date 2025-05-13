@@ -2,10 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { About } from "./pages/about/About.jsx";
-import { Ajude } from "./pages/Ajude.jsx";
-import { Apadrinhe } from "./pages/Apadrinhe.jsx";
+import { Ajude } from "./pages/ajude/Ajude.jsx";
 import { Contato } from "./pages/Contato.jsx";
-import { Cadastro } from "./pages/Cadastro.jsx";
+import { Cadastro } from "./pages/cadastro/Cadastro.jsx";
 import { Doe } from "./pages/Doe.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Parceiros } from "./pages/Parceiros.jsx";
@@ -38,7 +37,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/ajude" element={<Ajude />} />
-        <Route path="/apadrinhe" element={<Apadrinhe />} />
         <Route path="/adote" element={<Adote petsProps={pets} />} />
         {/* Passar os pets como propriedade para o componente Adote */}
         <Route path="/contato" element={<Contato />} />
