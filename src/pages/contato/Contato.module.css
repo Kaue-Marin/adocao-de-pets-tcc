@@ -1,63 +1,59 @@
-/* Estilos para o banner de contatos */
-
-.contato-section {
+.contatoSection {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
-  margin-bottom: 5rem;
+  margin: 0 auto 5rem;
 }
-.banner-contact {
+
+.bannerContact {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 10rem auto 0;
   padding: 20px;
   text-align: center;
-  margin-top: 10rem;
   animation: fadeIn 1s ease-in;
 }
 
-.banner-img-contact {
+.bannerImgContact {
   width: 100%;
   height: auto;
   transition: transform 0.5s ease-in;
   border-radius: 0.5rem;
 }
 
-.banner-contact:hover .banner-img-contact {
+.bannerContact:hover .bannerImgContact {
   transform: scale(1.05);
 }
 
-.banner-text-contact {
+.bannerTextContact {
   position: absolute;
   bottom: 10rem;
   left: 8rem;
   color: #fff;
 }
 
-.banner-title-contact {
+.bannerTitleContact {
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 5px;
 }
 
-.banner-brand-contact {
+.bannerBrandContact {
   font-size: 1.1rem;
 }
 
-.contact-icon {
+.contactIcon {
   font-size: 2rem;
   margin-top: 1.4rem;
   color: #fff;
 }
 
-/* Estilos para a seção de contato */
-.contact-box {
-  display: flex; /* Alterado para display flex */
+.contactBox {
+  display: flex;
   width: 100%;
   gap: 2rem;
   margin-top: 2rem;
@@ -65,56 +61,54 @@
   align-items: center;
 }
 
-.contact-informations {
+.contactInformations {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
   flex-direction: column;
   background-color: #1f6d7c;
-  padding: 2rem;
+  padding: 5rem;
   border-radius: 10px;
   height: 52rem;
-  padding: 5rem;
 }
 
-.contact-informations .contact-informations-item {
+.contactInformationsItem {
   width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-.contact-informations .contact-informations-item .icon-informations {
+.iconInformations {
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: center;
 }
 
-.contact-informations .contact-informations-item .icon-informations h2 {
+.iconInformations h2 {
   font-size: 1.6rem;
   color: #ccc;
 }
 
-.contact-informations .contact-informations-item .icon-informations .icon {
+.icon {
   font-size: 3rem;
   display: block;
   color: #2aaa90;
 }
 
-.contact-informations .contact-informations-item span {
+.contactInformationsItem span {
   font-size: 1.8rem;
   margin-top: 0.5rem;
   text-transform: none;
   color: #fff;
 }
 
-.contact-form {
+.contactForm {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   background-color: #1f6d7c;
   padding: 2rem;
   border-radius: 10px;
@@ -128,7 +122,7 @@ form {
   flex-direction: column;
 }
 
-form .boxInput {
+.boxInput {
   margin: 1rem 0;
   display: flex;
   align-items: center;
@@ -137,8 +131,8 @@ form .boxInput {
   border-radius: 5px;
 }
 
-form .boxInput input,
-form .boxInput textarea {
+.input,
+.textarea {
   width: 100%;
   background: var(--color-white);
   color: var(--color-black);
@@ -149,12 +143,12 @@ form .boxInput textarea {
   text-transform: none;
 }
 
-form .boxInput textarea {
+.textarea {
   resize: vertical;
 }
 
-form .boxInput input::placeholder,
-form .boxInput textarea::placeholder {
+.input::placeholder,
+.textarea::placeholder {
   color: #ccc;
   font-size: 1.6rem;
 }
@@ -162,47 +156,50 @@ form .boxInput textarea::placeholder {
 .btn {
   padding: 1rem 2rem;
   border: none;
-  background-color: var(--first-color);
+  background-color: #333;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.6rem;
+  width: 30rem;
+  margin: 0 auto;
 }
 
-.btn-submit {
+.btnSubmit {
   margin-top: 1rem;
 }
 
+
 @media (max-width: 768px) {
-  .contact-box {
-    flex-direction: column; /* Altera para empilhar os itens verticalmente */
+  .contactBox {
+    flex-direction: column;
   }
 
-  .contact-informations,
-  .contact-form {
-    max-width: 100%; /* Define a largura máxima como 100% para ocupar a largura total da tela */
+  .contactInformations,
+  .contactForm {
+    max-width: 95%;
+    padding: 1rem;
   }
+  
+    .contactInformations {
+        width: 100%;
+    }
 
-  .banner-text-contact {
-    position: static; /* Remove a posição absoluta para que o texto fique no fluxo normal do documento */
-    margin-top: 2rem; /* Adiciona margem superior para separar do banner */
-  }
-
-  .contact-informations,
-  .contact-form {
-    padding: 1rem; /* Reduz o preenchimento para economizar espaço */
+  .bannerTextContact {
+    position: static;
+    margin-top: 2rem;
   }
 }
 
 @media (max-width: 420px) {
-  .pet-card {
+  :global(.pet-card) {
     width: 300px;
     height: 240px;
     background-color: transparent !important;
     border: none !important;
   }
 
-  .pet-card img {
+  :global(.pet-card img) {
     width: 25rem;
     height: 70%;
     object-fit: cover;
