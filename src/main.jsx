@@ -17,7 +17,7 @@ import GerarPets from "./utils/GerarPet.js"; // Importe a função que gera os p
 import { Profile } from "./pages/Profile.jsx";
 import { NewPassword } from "./pages/NewPassword.jsx"; 
 import MeusPets from "./pages/MeusPets.jsx";
-import EditarPet from "./pages/EditarPet.jsx";
+import EditarPet from "./pages/editarPet/EditarPet.jsx";
 import { Home } from "./pages/home/Home.jsx";
 import { register } from "swiper/element/bundle";
 
